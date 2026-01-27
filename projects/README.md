@@ -9,13 +9,12 @@ This directory contains all projects for the Build on Viam program.
 | [Vino](vino.md) | Existing | Arm, gripper, **customer delivery** | Pour on demand, glass detection |
 | [Chess](chess.md) | Existing | Arm, vision, ML, **data pipeline** | Full game play, move execution |
 | [Greenhouse](greenhouse.md) | New | Data, ML, **fleet**, **triggers** | Monitor + auto-water |
-| [Box Bot](box-bot.md) | New | Vision, arm, **triggers** | Flatten only |
-| [Dishwasher](dishwasher.md) | New | Arm, vision, **data pipeline** | Single dish type |
-| [Cleaning Cart](cleaning-cart.md) | New | Navigation, SLAM, **scheduled tasks** | Patrol + detect |
 | [Barista](barista.md) | Proposed | Arm, **customer delivery**, **fleet**, **triggers** | Espresso only |
 | [Inventory Tracker](inventory-tracker.md) | New | RFID, vision, **triggers**, **customer delivery** | Barcode checkout |
 | [Retro Roomba](retro-roomba.md) | New | **Custom module**, protocol, SLAM | Basic drive control |
 | [Smart Lighting](smart-lighting.md) | New | IoT, **triggers**, **multi-machine**, **scheduled tasks** | Basic control + scenes |
+
+See also: [Future Projects](future-projects.md) - Cleaning Cart, Dishwasher, Box Bot
 
 ## Project Comparison
 
@@ -25,24 +24,18 @@ This directory contains all projects for the Build on Viam program.
 | Barista | 5 | 3 | 5 | **4.5** |
 | Inventory Tracker | 5 | 4 | 4 | **4.3** |
 | Smart Lighting | 4 | 4 | 4 | **4.2** |
-| Box Bot | 4 | 4 | 5 | **4.0** |
-| Cleaning Cart | 5 | 2 | 5 | **4.0** |
 | Vino | 4 | 4 | 5 | **4.0** |
 | Chess | 4 | 4 | 5 | **4.0** |
 | Retro Roomba | 4 | 4 | 4 | **4.0** |
-| Dishwasher | 4 | 3 | 5 | **3.8** |
 
 ## Project Categories
 
 ### Manipulation (Arm-based)
 - **Vino** - Wine pouring and service
 - **Chess** - Chess piece manipulation
-- **Box Bot** - Cardboard breakdown
-- **Dishwasher** - Dish handling
 - **Barista** - Coffee preparation
 
 ### Mobile/Navigation
-- **Cleaning Cart** - Office patrol with TurtleBot 4
 - **Retro Roomba** - Legacy Roomba with custom driver
 
 ### IoT/Sensing
@@ -52,35 +45,35 @@ This directory contains all projects for the Build on Viam program.
 
 ## Viam Capabilities by Project
 
-| Capability | Vino | Chess | GH | Box | Dish | Cart | Bar | Inv | RR | Light |
-|------------|------|-------|-----|-----|------|------|-----|-----|-----|-------|
-| Arm Control | x | x | | x | x | | x | | | |
-| Gripper | x | x | | x | x | | x | | | |
-| Vision/ML | x | x | x | x | x | x | x | x | | |
-| Navigation/SLAM | | | | | | x | | | x | |
-| Data Capture | x | x | x | x | x | x | x | x | x | x |
-| Remote Operation | x | x | x | x | x | x | x | x | x | x |
-| **Custom Module** | | | | | | | | x | x | x |
-| **Triggers** | x | x | x | x | x | x | x | x | x | x |
-| **Data Pipeline** | | x | x | x | x | | x | x | | |
-| **Scheduled Tasks** | x | | x | | | x | x | x | | x |
-| **Customer Delivery** | x | | | | | | x | x | | |
-| **Fleet Management** | | | x | | | x | x | x | | x |
-| **Multi-machine** | | | x | | x | x | | | | x |
-| **Monitoring/Alerting** | | | x | | | | x | x | | x |
+| Capability | Vino | Chess | GH | Bar | Inv | RR | Light |
+|------------|------|-------|-----|-----|-----|-----|-------|
+| Arm Control | x | x | | x | | | |
+| Gripper | x | x | | x | | | |
+| Vision/ML | x | x | x | x | x | | |
+| Navigation/SLAM | | | | | | x | |
+| Data Capture | x | x | x | x | x | x | x |
+| Remote Operation | x | x | x | x | x | x | x |
+| **Custom Module** | | | | | x | x | x |
+| **Triggers** | x | x | x | x | x | x | x |
+| **Data Pipeline** | | x | x | x | x | | |
+| **Scheduled Tasks** | x | | x | x | x | | x |
+| **Customer Delivery** | x | | | x | x | | |
+| **Fleet Management** | | | x | x | x | | x |
+| **Multi-machine** | | | x | | | | x |
+| **Monitoring/Alerting** | | | x | x | x | | x |
 
-**Legend:** GH=Greenhouse, Box=Box Bot, Dish=Dishwasher, Cart=Cleaning Cart, Bar=Barista, Inv=Inventory Tracker, RR=Retro Roomba, Light=Smart Lighting
+**Legend:** GH=Greenhouse, Bar=Barista, Inv=Inventory Tracker, RR=Retro Roomba, Light=Smart Lighting
 
 ## Gap Feature Coverage
 
 | Gap Feature | Primary Projects | Secondary Projects |
 |-------------|------------------|-------------------|
-| **Triggers** | Inventory Tracker, Smart Lighting | Greenhouse, Box Bot |
-| **Scheduled Tasks** | Smart Lighting, Cleaning Cart | Greenhouse, Barista |
+| **Triggers** | Inventory Tracker, Smart Lighting | Greenhouse, Barista |
+| **Scheduled Tasks** | Smart Lighting, Inventory Tracker | Greenhouse, Barista |
 | **Customer Delivery** | Inventory Tracker, Vino | Barista |
-| **Data Pipeline** | Chess, Greenhouse | Box Bot, Dishwasher |
-| **Fleet Management** | Greenhouse, Smart Lighting | Barista, Cleaning Cart |
-| **Multi-machine Coordination** | Smart Lighting | Greenhouse, Dishwasher, Cleaning Cart |
+| **Data Pipeline** | Chess, Greenhouse | Inventory Tracker, Barista |
+| **Fleet Management** | Greenhouse, Smart Lighting | Barista, Inventory Tracker |
+| **Multi-machine Coordination** | Smart Lighting | Greenhouse |
 | **Custom Module Development** | Retro Roomba, Smart Lighting | Inventory Tracker |
 
 ## Cost Comparison
@@ -90,9 +83,6 @@ This directory contains all projects for the Build on Viam program.
 | Vino | $$$$$ | Yes | Partial |
 | Chess | $$$$$ | Yes | Partial |
 | Barista | $$$$$ | Yes | Partial |
-| Box Bot | $$$$$ | Yes | Partial |
-| Dishwasher | $$$$$ | Yes | Partial |
-| Cleaning Cart | $$$ | Optional | Partial |
 | Greenhouse | $$ | No | Yes |
 | Inventory Tracker | $$ | No | Yes |
 | Smart Lighting | $$ | No | Yes |
@@ -104,8 +94,7 @@ Several projects can work together:
 
 | Integration | Projects | Description |
 |-------------|----------|-------------|
-| **Lights follow rover** | Smart Lighting + Cleaning Cart/Retro Roomba | Lights activate when rover enters zone |
-| **Dish handoff** | Cleaning Cart + Dishwasher | Cart delivers dishes to dishwasher station |
+| **Lights follow rover** | Smart Lighting + Retro Roomba | Lights activate when rover enters zone |
 | **Checkout triggers lights** | Inventory Tracker + Smart Lighting | Lab lights on when equipment checked out |
 | **Robot fleet dashboard** | All mobile robots | Centralized monitoring of all rovers |
 
@@ -134,9 +123,7 @@ Current build configuration for 50 engineers:
 |---------|--------|-----------|-----------------|
 | Vino | 4 | 5 | 20 |
 | Chess | 2 | 5 | 10 |
-| Box Bot | 1 | 5 | 5 |
-| Dishwasher | 1 | 5 | 5 |
-| Cleaning Cart | 1 | 5-10 | 5-10 |
+| Greenhouse | 1 | 5 | 5 |
 | Inventory Tracker | 1 | 5 | 5 |
 | Smart Lighting | 1 | 5 | 5 |
 | Retro Roomba | 1 | 5 | 5 |

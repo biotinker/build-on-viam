@@ -6,7 +6,7 @@
 
 **Project Lead:** TBD
 **Team Members:** TBD
-**Status:** New (suggested by Andrea)
+**Status:** Future (suggested by Andrea)
 
 ## Description
 
