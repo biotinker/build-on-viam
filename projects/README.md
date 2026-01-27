@@ -13,6 +13,9 @@ This directory contains all projects for the Build on Viam program.
 | [Dishwasher](dishwasher.md) | New | Arm, vision, **data pipeline** | Single dish type |
 | [Cleaning Cart](cleaning-cart.md) | New | Navigation, SLAM, **scheduled tasks** | Patrol + detect |
 | [Barista](barista.md) | Proposed | Arm, **customer delivery**, **fleet**, **triggers** | Espresso only |
+| [Inventory Tracker](inventory-tracker.md) | New | RFID, vision, **triggers**, **customer delivery** | Barcode checkout |
+| [Retro Roomba](retro-roomba.md) | New | **Custom module**, protocol, SLAM | Basic drive control |
+| [Smart Lighting](smart-lighting.md) | New | IoT, **triggers**, **multi-machine**, **scheduled tasks** | Basic control + scenes |
 
 ## Project Comparison
 
@@ -20,37 +23,97 @@ This directory contains all projects for the Build on Viam program.
 |---------|------------------|-------------|-------------|------------------|
 | Greenhouse | 5 | 3 | 5 | **4.6** |
 | Barista | 5 | 3 | 5 | **4.5** |
+| Inventory Tracker | 5 | 4 | 4 | **4.3** |
+| Smart Lighting | 4 | 4 | 4 | **4.2** |
 | Box Bot | 4 | 4 | 5 | **4.0** |
 | Cleaning Cart | 5 | 2 | 5 | **4.0** |
-| Dishwasher | 4 | 3 | 5 | **3.8** |
 | Vino | 4 | 4 | 5 | **4.0** |
 | Chess | 4 | 4 | 5 | **4.0** |
+| Retro Roomba | 4 | 4 | 4 | **4.0** |
+| Dishwasher | 4 | 3 | 5 | **3.8** |
+
+## Project Categories
+
+### Manipulation (Arm-based)
+- **Vino** - Wine pouring and service
+- **Chess** - Chess piece manipulation
+- **Box Bot** - Cardboard breakdown
+- **Dishwasher** - Dish handling
+- **Barista** - Coffee preparation
+
+### Mobile/Navigation
+- **Cleaning Cart** - Office patrol with TurtleBot 4
+- **Retro Roomba** - Legacy Roomba with custom driver
+
+### IoT/Sensing
+- **Greenhouse** - Environmental monitoring and control
+- **Inventory Tracker** - RFID/vision asset tracking
+- **Smart Lighting** - Lutron integration, cross-machine triggers
 
 ## Viam Capabilities by Project
 
-| Capability | Vino | Chess | Greenhouse | Box Bot | Dishwasher | Cleaning Cart | Barista |
-|------------|------|-------|------------|---------|------------|---------------|---------|
-| Arm Control | x | x | | x | x | | x |
-| Gripper | x | x | | x | x | | x |
-| Vision/ML | x | x | x | x | x | x | x |
-| Navigation/SLAM | | | | | | x | |
-| Data Capture | x | x | x | x | x | x | x |
-| Remote Operation | x | x | x | x | x | x | x |
-| Multi-robot Coordination | | | x | | x | x | |
-| Fragments | | | x | | | | x |
-| **Triggers** | x | x | x | x | x | x | x |
-| **Data Pipeline** | | x | x | x | x | | x |
-| **Scheduled Tasks** | x | | x | | | x | x |
-| **Customer Delivery** | x | | | | | | x |
-| **Fleet Management** | | | x | | | x | x |
-| **Monitoring/Alerting** | | | x | | | | x |
+| Capability | Vino | Chess | GH | Box | Dish | Cart | Bar | Inv | RR | Light |
+|------------|------|-------|-----|-----|------|------|-----|-----|-----|-------|
+| Arm Control | x | x | | x | x | | x | | | |
+| Gripper | x | x | | x | x | | x | | | |
+| Vision/ML | x | x | x | x | x | x | x | x | | |
+| Navigation/SLAM | | | | | | x | | | x | |
+| Data Capture | x | x | x | x | x | x | x | x | x | x |
+| Remote Operation | x | x | x | x | x | x | x | x | x | x |
+| **Custom Module** | | | | | | | | x | x | x |
+| **Triggers** | x | x | x | x | x | x | x | x | x | x |
+| **Data Pipeline** | | x | x | x | x | | x | x | | |
+| **Scheduled Tasks** | x | | x | | | x | x | x | | x |
+| **Customer Delivery** | x | | | | | | x | x | | |
+| **Fleet Management** | | | x | | | x | x | x | | x |
+| **Multi-machine** | | | x | | x | x | | | | x |
+| **Monitoring/Alerting** | | | x | | | | x | x | | x |
+
+**Legend:** GH=Greenhouse, Box=Box Bot, Dish=Dishwasher, Cart=Cleaning Cart, Bar=Barista, Inv=Inventory Tracker, RR=Retro Roomba, Light=Smart Lighting
+
+## Gap Feature Coverage
+
+| Gap Feature | Primary Projects | Secondary Projects |
+|-------------|------------------|-------------------|
+| **Triggers** | Inventory Tracker, Smart Lighting | Greenhouse, Box Bot |
+| **Scheduled Tasks** | Smart Lighting, Cleaning Cart | Greenhouse, Barista |
+| **Customer Delivery** | Inventory Tracker, Vino | Barista |
+| **Data Pipeline** | Chess, Greenhouse | Box Bot, Dishwasher |
+| **Fleet Management** | Greenhouse, Smart Lighting | Barista, Cleaning Cart |
+| **Multi-machine Coordination** | Smart Lighting | Greenhouse, Dishwasher, Cleaning Cart |
+| **Custom Module Development** | Retro Roomba, Smart Lighting | Inventory Tracker |
+
+## Cost Comparison
+
+| Project | Hardware Cost | Arm Required | Remote-Friendly |
+|---------|--------------|--------------|-----------------|
+| Vino | $$$$$ | Yes | Partial |
+| Chess | $$$$$ | Yes | Partial |
+| Barista | $$$$$ | Yes | Partial |
+| Box Bot | $$$$$ | Yes | Partial |
+| Dishwasher | $$$$$ | Yes | Partial |
+| Cleaning Cart | $$$ | Optional | Partial |
+| Greenhouse | $$ | No | Yes |
+| Inventory Tracker | $$ | No | Yes |
+| Smart Lighting | $$ | No | Yes |
+| Retro Roomba | $ | No | Partial |
+
+## Cross-Project Integration
+
+Several projects can work together:
+
+| Integration | Projects | Description |
+|-------------|----------|-------------|
+| **Lights follow rover** | Smart Lighting + Cleaning Cart/Retro Roomba | Lights activate when rover enters zone |
+| **Dish handoff** | Cleaning Cart + Dishwasher | Cart delivers dishes to dishwasher station |
+| **Checkout triggers lights** | Inventory Tracker + Smart Lighting | Lab lights on when equipment checked out |
+| **Robot fleet dashboard** | All mobile robots | Centralized monitoring of all rovers |
 
 ## Reference Documents
 
 - [Project Assessment Criteria](../docs/project-assessment-criteria.md) - How projects are evaluated
 - [Project Template](../templates/project-template.md) - Template for new projects
 - [Submission Guidelines](../docs/submission-guidelines.md) - How to propose new projects
-- [Project Details Options](project-details-options.md) - Full options breakdown for all projects
 
 ## Selecting a Project
 
@@ -59,8 +122,26 @@ During the hackathon kickoff, engineers will select which project to join. Consi
 - Which capabilities do you want to learn?
 - What hardware is available to you?
 - Which team members do you want to collaborate with?
+- Do you prefer manipulation, navigation, or IoT projects?
 
 **Requirement:** Every engineer must join a project team.
+
+## Team Sizes (50 Engineers)
+
+Current build configuration for 50 engineers:
+
+| Project | Builds | Team Size | Total Engineers |
+|---------|--------|-----------|-----------------|
+| Vino | 4 | 5 | 20 |
+| Chess | 2 | 5 | 10 |
+| Box Bot | 1 | 5 | 5 |
+| Dishwasher | 1 | 5 | 5 |
+| Cleaning Cart | 1 | 5-10 | 5-10 |
+| Inventory Tracker | 1 | 5 | 5 |
+| Smart Lighting | 1 | 5 | 5 |
+| Retro Roomba | 1 | 5 | 5 |
+
+**Note:** Adjust based on interest and hardware availability.
 
 ## Next Steps
 
