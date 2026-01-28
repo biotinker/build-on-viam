@@ -40,7 +40,7 @@ This project combines manipulation complexity (multi-step beverage preparation),
 | Arm | 6-DOF robot arm | UFACTORY 850 (850mm reach, 5kg payload) |
 | Gripper | Portafilter/pitcher handling | UFACTORY Gripper |
 | Auto-tamper | Consistent 30lb tamp pressure | Puqpress Q2 (~$900) |
-| Espresso Machine | Semi-automatic | Rancilio Silvia Pro X or Gaggia Classic Pro |
+| Espresso Machine | Semi-automatic, physical buttons | Gaggia Classic Pro (~$450) |
 | Grinder | Portafilter-activated | Eureka Atom (~$1,100) |
 | Wrist Camera | Close-up detection | Intel RealSense D405 |
 | Overview Camera | Workspace monitoring | USB webcam |
@@ -50,11 +50,11 @@ This project combines manipulation complexity (multi-step beverage preparation),
 | Milk Pitcher | Steaming vessel | Standard 12oz pitcher |
 | Compute | Main controller | System76 Meerkat |
 
-**Estimated Hardware Cost:** $13,000-16,000
+**Estimated Hardware Cost:** $12,000-14,000
 - UFACTORY 850: ~$8,000
 - Eureka Atom grinder: ~$1,100
 - Puqpress Q2: ~$900
-- Espresso machine: ~$1,500
+- Gaggia Classic Pro: ~$450
 - System76 Meerkat: ~$800
 - Cameras, tablet, accessories: ~$500
 
@@ -267,24 +267,24 @@ Select 3-5 items for post-hackathon development:
 | Steam wand positioning | Hold steady during steaming | Fixed wand angle, move pitcher |
 | Puck knockback | Firm tap required | Controlled velocity impact |
 
-### Buttonless Workflow
+### Minimal Button Workflow
 
 Both the Eureka Atom grinder and Puqpress Q2 are sensor-activated:
 - **Grinder:** Portafilter fork switch triggers grinding when pressed
 - **Tamper:** Sensor detects portafilter placement, auto-tamps in 1.3 sec
 
-The only button the robot needs to press is the **espresso machine brew button**.
+The only button the robot needs to press is the **Gaggia Classic Pro brew rocker switch**. The rocker switch design is easier for a robot arm to actuate than push buttons.
 
 ### Espresso Machine Options
 
 | Machine | Price | Pros | Cons |
 |---------|-------|------|------|
-| Rancilio Silvia Pro X | ~$1,500 | PID built-in, reliable, common | No API, button control only |
-| Gaggia Classic Pro | ~$450 | Cheap, well-documented Pi mods | Needs PID mod for consistency |
-| Profitec Go | ~$1,200 | Compact, PID, quality build | No smart features |
-| Lelit Anna 2 | ~$500 | PID, compact | Limited community support |
+| Gaggia Classic Pro | ~$450 | Rocker switches (easy for robot), 58mm portafilter, Pi mods available | No PID (can add aftermarket) |
+| Rancilio Silvia | ~$465 | Professional build, toggle switches | No PID built-in |
+| Rancilio Silvia Pro X | ~$1,500 | PID built-in, reliable | Higher cost |
+| Breville Bambino Plus | ~$250 | Compact, PID, affordable | 54mm portafilter (non-standard) |
 
-**Recommendation:** Rancilio Silvia Pro X - reliable, PID temperature control built-in, robot just needs to press buttons.
+**Recommendation:** Gaggia Classic Pro - rocker switches are easy for robot to press, 58mm commercial portafilter, well-documented mods, excellent value.
 
 ### References
 
@@ -293,7 +293,8 @@ The only button the robot needs to press is the **espresso machine brew button**
 - [Artly Coffee](https://artly.coffee/) - AI-trained robotic barista
 - [Eureka Atom](https://www.eureka.co.it/en/products/espresso_line_home/atom.aspx) - Portafilter-activated grinder
 - [Puqpress Q2](https://puq.coffee/) - Automatic tamper with 22-66lb adjustable pressure
-- [Gaggia Classic Pi Mods](https://github.com/esrice/piggia) - Open source Pi control
+- [Gaggia Classic Pro](https://www.gaggia.com/manual-machines/new-classic/) - Semi-automatic with rocker switches
+- [Gaggia Classic Pi Mods](https://github.com/esrice/piggia) - Open source Pi control for Gaggia
 
 ---
 

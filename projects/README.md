@@ -79,18 +79,88 @@ See also: [Future Projects](future-projects.md) - Cleaning Cart, Dishwasher, Box
 | **Multi-machine Coordination** | Salad Maker, Smart Lighting | Greenhouse |
 | **Custom Module Development** | Retro Roomba, Smart Lighting | Inventory Tracker |
 
+## Hardware Requirements by Build
+
+### Arm-Based Projects
+
+| Build | Arm | Gripper | Compute | Cameras | Other |
+|-------|-----|---------|---------|---------|-------|
+| Vino 1 | xArm 6 (2) | xArm Gripper G2 (2) | Meerkat (1) | D435 wrist (2), webcam glass (1) | — |
+| Vino 2 | xArm 6 (2) | xArm Gripper G2 (2) | Meerkat (1) | D435 wrist (2), webcam glass (1) | — |
+| Vino 3 | xArm 6 (2) | xArm Gripper G2 (2) | Meerkat (1) | D435 wrist (2), webcam glass (1) | — |
+| Vino 4 | xArm 6 (2) | xArm Gripper G2 (2) | Meerkat (1) | D435 wrist (2), webcam glass (1) | — |
+| Chess 1 | xArm 7 (1) | xArm Gripper G2 (1) | Meerkat (1) | D435 wrist (1) | Board (1), pieces (1) |
+| Chess 2 | xArm 7 (1) | xArm Gripper G2 (1) | Meerkat (1) | D435 wrist (1) | Board (1), pieces (1) |
+| Salad 1 | UFACTORY 850 (2) | xArm Gripper G2 + tongs (2) | Meerkat (1) | D435 wrist (2), webcam overview (1) | Prep station (1), dispenser (1) |
+| Salad 2 | UFACTORY 850 (2) | xArm Gripper G2 + tongs (2) | Meerkat (1) | D435 wrist (2), webcam overview (1) | Prep station (1), dispenser (1) |
+| Barista 1 | UFACTORY 850 (1) | xArm Gripper G2 (1) | Meerkat (1) | D435 wrist (1), webcam overview (1) | Eureka Atom (1), Puqpress Q2 (1), Gaggia (1), tablet (1), Viam mugs |
+| Barista 2 | UFACTORY 850 (1) | xArm Gripper G2 (1) | Meerkat (1) | D435 wrist (1), webcam overview (1) | Eureka Atom (1), Puqpress Q2 (1), Gaggia (1), tablet (1), Viam mugs |
+
+### IoT/Sensing Projects
+
+| Build | Compute | Cameras | Sensors | Other |
+|-------|---------|---------|---------|-------|
+| Greenhouse 1 | TBD | TBD | TBD | TBD |
+| Inventory 1 | Pi 5 (6) | webcam (6) | RFID reader (2) | RFID tags, tablet kiosk (1) |
+| Lighting 1 | Pi 5 (4) | — | BH1750 light (4) | Lutron Bridge PRO (4) |
+
+### Mobile Projects
+
+| Build | Compute | Cameras | Sensors | Base | Other |
+|-------|---------|---------|---------|------|-------|
+| Roomba 1 | Pi 5 (1) | webcam (1) | (internal) | Roomba 500/600 (1) | Serial adapter (1), IR beacons |
+| Roomba 2 | Pi 5 (1) | webcam (1) | (internal) | Roomba 500/600 (1) | Serial adapter (1), IR beacons |
+
+### Hardware Totals
+
+| Component | Count | Notes |
+|-----------|-------|-------|
+| **Arms** | | |
+| xArm 6 | 8 | Vino (4 builds × 2) |
+| xArm 7 | 2 | Chess (2 builds × 1) |
+| UFACTORY 850 | 6 | Salad (2 builds × 2), Barista (2 builds × 1) |
+| **Grippers** | | |
+| xArm Gripper G2 | 16 | Vino (8), Chess (2), Salad (4), Barista (2) |
+| Tongs extension | 4 | Salad (2 builds × 2) |
+| **Compute** | | |
+| System76 Meerkat | 10 | Vino (4), Chess (2), Salad (2), Barista (2) |
+| Raspberry Pi 5 | 12 | Inventory (6), Lighting (4), Roomba (2) |
+| **Cameras** | | |
+| Intel RealSense D435 | 16 | Vino (8), Chess (2), Salad (4), Barista (2) |
+| Webcam | 16 | Vino (4), Salad (2), Barista (2), Inventory (6), Roomba (2) |
+| **Bases** | | |
+| Roomba 500/600 | 2 | Retro Roomba (2 builds × 1) |
+| **Barista Equipment** | | |
+| Eureka Atom grinder | 2 | Barista (2 builds × 1) |
+| Puqpress Q2 | 2 | Barista (2 builds × 1) |
+| Gaggia Classic Pro | 2 | Barista (2 builds × 1) |
+| **Other** | | |
+| Lutron Smart Bridge PRO | 4 | Lighting (1 build × 4) |
+| RFID reader | 2 | Inventory (1 build × 2) |
+| Tablet | 3 | Barista (2), Inventory (1) |
+
+### Arm Summary
+
+| Arm Model | Projects | Per Build | Builds | Total |
+|-----------|----------|-----------|--------|-------|
+| xArm 6 | Vino | 2 | 4 | 8 |
+| xArm 7 | Chess | 1 | 2 | 2 |
+| UFACTORY 850 | Salad Maker | 2 | 2 | 4 |
+| UFACTORY 850 | Barista | 1 | 2 | 2 |
+| **Total** | | | | **16** |
+
 ## Cost Comparison
 
 | Project | Hardware Cost | Arm Required | Remote-Friendly |
 |---------|--------------|--------------|-----------------|
-| Salad Maker | $$$$$$ | Yes (2x) | Partial |
-| Vino | $$$$$ | Yes | Partial |
-| Chess | $$$$$ | Yes | Partial |
-| Barista | $$$$$ | Yes | Partial |
-| Greenhouse | $$ | No | Yes |
-| Inventory Tracker | $$ | No | Yes |
-| Smart Lighting | $$ | No | Yes |
-| Retro Roomba | $ | No | Partial |
+| Salad Maker | ~$19k | Yes (2x UFACTORY 850) | Partial |
+| Barista | ~$13k | Yes (UFACTORY 850) | Partial |
+| Vino | ~$9k | Yes (xArm 6) | Partial |
+| Chess | ~$10k | Yes (xArm 7) | Partial |
+| Greenhouse | ~$400 | No | Yes |
+| Inventory Tracker | ~$500 | No | Yes |
+| Smart Lighting | ~$700 | No | Yes |
+| Retro Roomba | ~$150 | No | Partial |
 
 ## Cross-Project Integration
 
