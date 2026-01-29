@@ -1,4 +1,4 @@
-# Build on Viam: Hackathon Announcement + Updated 20% Time Program
+# Build on Viam
 
 Deep platform familiarity isn't optional — it's what makes us effective. When you deeply understand Viam, you make better product and implementation decisions day-to-day. You can evaluate tradeoffs, spot issues early, and drive the right approach in your own work. You also move faster with less time lost to unfamiliar territory and dead ends. This program pays back in both autonomy and velocity.
 
