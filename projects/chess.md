@@ -57,7 +57,7 @@ The following is already implemented in `~/viam/viam-chess`:
 - Corner detection and refinement
 - Perspective transform to square output image
 - Point cloud filtering and coordinate transformation
-- **Current limitation (v0):** Hard-coded camera position; board must be in exact expected location
+- **Current limitation (v0):** Hard-coded camera position; board must be in expected field of view
 
 ### Piece Detection
 - **Presence detection:** Point cloud height > 25mm indicates piece present
@@ -221,41 +221,6 @@ Add user-facing features for a polished experience.
 
 ---
 
-## Success Criteria
-
-**MVP Complete When:**
-- [ ] Robot detects piece presence and color on all squares
-- [ ] Robot plays legal chess moves including castling
-- [ ] Robot can play against a human opponent
-- [ ] Demo runs reliably 3+ games without intervention
-
-**v1.0 Complete When:**
-- [ ] En passant and promotion implemented (both play modes)
-- [ ] Graveyard holds all 32 pieces
-- [ ] Placement verification working
-- [ ] Board finding tolerates position variance (v1)
-- [ ] Mode selection and chess clock in app
-
-**Full Project Complete When:**
-- [ ] Piece type identification working (ML model)
-- [ ] Full dynamic board finding (v2)
-- [ ] Can set up game from arbitrary position
-- [ ] Teaching mode available
-- [ ] Can run unsupervised at an event
-
----
-
-## Documentation Deliverables
-
-- [ ] README with setup instructions
-- [ ] Hardware assembly guide (linked from existing doc)
-- [ ] Camera calibration guide
-- [ ] Stockfish configuration guide
-- [ ] Board finding tuning guide
-- [ ] Demo operation guide
-
----
-
 ## Links
 
 - **Existing Code:** ~/viam/viam-chess
@@ -285,7 +250,7 @@ Example: If it's Black's turn and the system sees e7 went from "black piece" to 
 
 ### Board Finding Versions
 
-**v0 (Current):** Hard-coded camera position. Board must be in exact expected location.
+**v0 (Current):** Hard-coded camera position. Board must be in expected location.
 
 **v1 (Backlog):** Find board within ~100mm of expected position. Tolerate slight angle changes. Uses existing Hough transform infrastructure.
 
@@ -307,15 +272,6 @@ Example: If it's Black's turn and the system sees e7 went from "black piece" to 
 
 ## Notes
 
-**Key Design Insight:**
+**Design Insight:**
 Piece type recognition is unnecessary for gameplay because legal move constraints + game state tracking uniquely identify any move. This is a lesson in practical robotics — sometimes you don't need the "obvious" capability.
 
-**Gap Features This Project Addresses:**
-- **Data Pipeline** - Excellent example of capture → label → train → deploy cycle (board images auto-labeled with game state)
-- **Triggers** - Human move detection, game end detection, timeout handling
-
-**Why data pipeline fits here:**
-- Chess has automatic ground truth — the game state IS the label
-- Every game generates labeled training data for free
-- Clear metric for model improvement (detection accuracy)
-- Natural A/B testing opportunity (old model vs new model)

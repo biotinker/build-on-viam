@@ -2,7 +2,7 @@
 
 ## Overview
 
-**One-line description:** Intelligent lighting that responds to occupancy, daylight, schedules, and robot activity
+**One-line description:** Intelligent lighting that responds to occupancy, daylight, and schedules
 
 **Project Lead:** TBD
 **Team Members:** TBD
@@ -10,15 +10,14 @@
 
 ## Description
 
-Smart Office Lighting integrates Lutron Caseta lighting controls with Viam, creating an intelligent lighting system that responds to multiple inputs: occupancy sensors, ambient light levels, time schedules, and crucially - robot locations. When a rover enters an area, lights in that zone activate. When all robots dock at night, the building shifts to night mode.
+Smart Office Lighting integrates Lutron Caseta lighting controls with Viam, creating an intelligent lighting system that responds to multiple inputs: occupancy sensors, ambient light levels, and time schedules. The system automatically adjusts lighting based on who's in the office, how much natural light is available, and what time of day it is.
 
-This project demonstrates multi-machine coordination, triggers, scheduled tasks, and IoT integration - capabilities that manipulation-heavy projects don't emphasize. It also creates tangible cross-project integration where robots interact with building infrastructure.
+This project demonstrates triggers, scheduled tasks, IoT integration, and custom module development - capabilities that manipulation-heavy projects don't emphasize.
 
 ## Viam Capabilities Demonstrated
 
 - [x] Custom Module Development ← **Lutron Telnet protocol module**
-- [x] Multi-machine Coordination ← **Rovers trigger lighting changes**
-- [x] Triggers ← **Primary demo: robot location, occupancy, thresholds**
+- [x] Triggers ← **Primary demo: occupancy, daylight thresholds**
 - [x] Scheduled Tasks ← **Time-based scenes, daylight harvesting**
 - [x] Data Capture ← **Lighting events, energy usage**
 - [x] Fleet Management ← **Multiple light zones as fleet**
@@ -61,14 +60,14 @@ Lights respond to Lutron motion sensors.
 - **Demo Appeal:** Medium-High
 - **Scope:** Adds sensor integration, automatic control
 
-### Option C: Robot-Triggered Lighting
-Lights follow rovers around the office.
+### Option C: Daylight Harvesting
+Automatically adjust artificial lighting based on ambient light levels.
 - **Complexity:** Medium-High
 - **Demo Appeal:** High
-- **Scope:** Cross-machine triggers, zone mapping
+- **Scope:** Light sensor integration, continuous adjustment loop
 
 ### Option D: Full Smart Office
-Occupancy + daylight + schedules + robot integration.
+Occupancy + daylight + schedules.
 - **Complexity:** High
 - **Demo Appeal:** Very High
 - **Scope:** Complete intelligent lighting system
@@ -88,39 +87,31 @@ Select 3-5 items for post-hackathon development:
 - [ ] **Scene activation** - Preset lighting configurations
 - [ ] **Fade transitions** - Smooth level changes
 
-### Multi-Machine Coordination
-- [ ] **Rover zone detection** - Map rover SLAM position to light zones
-- [ ] **Lights follow rover** - Activate zone when rover enters
-- [ ] **Night patrol mode** - Only light the rover's current zone
-- [ ] **All docked = night mode** - When all rovers dock, dim building
-- [ ] **Cross-machine triggers** - Rover events trigger light changes
-
 ### Triggers (Gap Feature)
 - [ ] **Occupancy trigger** - Motion sensor activates lights
-- [ ] **Vacancy timeout** - Dim/off after no motion
+- [ ] **Vacancy timeout** - Dim/off after no motion for N minutes
 - [ ] **Daylight threshold** - Adjust artificial light based on ambient
-- [ ] **Rover entered zone** - Trigger from rover location data
 - [ ] **After hours trigger** - Different behavior outside work hours
+- [ ] **Manual override detection** - Detect Pico remote use, pause automation
 
 ### Scheduled Tasks (Gap Feature)
 - [ ] **Morning startup** - Lights to work mode at 7 AM
 - [ ] **Evening shutdown** - Lights off at 8 PM
 - [ ] **Weekend mode** - Reduced lighting Sat/Sun
-- [ ] **Daylight harvesting loop** - Continuous adjustment
-- [ ] **Cleaning mode** - Full brightness for cleaning crew
+- [ ] **Daylight harvesting loop** - Continuous adjustment based on light sensor
+- [ ] **Cleaning mode** - Full brightness for cleaning crew (scheduled)
 
 ### Scenes
 - [ ] **Work mode** - Standard office lighting (80%)
 - [ ] **Meeting** - Conference room preset (60%)
 - [ ] **Presentation** - Front low, back very low
-- [ ] **Night patrol** - Only rover zone lit
 - [ ] **Away** - All lights off
 - [ ] **Emergency** - All lights 100%
 
 ### Daylight Harvesting
 - [ ] **Ambient light sensor** - BH1750 integration
-- [ ] **Per-zone adjustment** - Window zones dim more
-- [ ] **Target lux maintenance** - Maintain consistent light level
+- [ ] **Per-zone adjustment** - Window zones dim more than interior
+- [ ] **Target lux maintenance** - Maintain consistent light level regardless of outside conditions
 - [ ] **Energy tracking** - Log savings from harvesting
 
 ### Data & Analytics
@@ -134,10 +125,10 @@ Select 3-5 items for post-hackathon development:
 ## Stretch Goals
 
 - [ ] Color temperature control (if using tunable fixtures)
-- [ ] Circadian rhythm lighting (warm morning/evening)
+- [ ] Circadian rhythm lighting (warm morning/evening, cool midday)
 - [ ] Voice control integration
-- [ ] Calendar integration (meeting room auto-adjust)
-- [ ] Energy reporting and optimization
+- [ ] Calendar integration (meeting room auto-adjust based on bookings)
+- [ ] Energy reporting and optimization recommendations
 
 ---
 
@@ -148,14 +139,14 @@ Select 3-5 items for post-hackathon development:
 - [ ] Can control individual lights from Viam
 - [ ] Zone grouping works
 - [ ] Basic scene activation works
-- [ ] One trigger: rover enters zone -> lights on
+- [ ] One trigger working: occupancy or daylight threshold
 
 **Project Complete When:**
-- [ ] Full integration with Cleaning Cart location
 - [ ] Daylight harvesting working
 - [ ] Scheduled scenes operational
 - [ ] Occupancy sensor integration complete
 - [ ] Dashboard showing lighting status
+- [ ] Documentation complete
 
 ---
 
@@ -166,7 +157,7 @@ Select 3-5 items for post-hackathon development:
 - [ ] Wiring and installation guide
 - [ ] Zone configuration reference
 - [ ] Scene programming guide
-- [ ] Cross-machine trigger setup guide
+- [ ] Trigger configuration guide
 
 ---
 
@@ -275,74 +266,60 @@ DoCommand(ctx, map[string]interface{}{
 })
 ```
 
-### Robot-Triggered Lighting Architecture
+### Daylight Harvesting Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      VIAM CLOUD                              │
+│                    Lighting Machine                          │
+│                                                              │
+│  ┌──────────────┐     ┌──────────────┐     ┌─────────────┐  │
+│  │ BH1750       │────▶│ Harvesting   │────▶│ Lutron      │  │
+│  │ Light Sensor │     │ Logic        │     │ Bridge      │  │
+│  └──────────────┘     └──────────────┘     └─────────────┘  │
+│                              │                     │         │
+│                              ▼                     ▼         │
+│                    ┌──────────────┐        ┌─────────────┐  │
+│                    │ Data Capture │        │ Caseta      │  │
+│                    │ (lux levels) │        │ Dimmers     │  │
+│                    └──────────────┘        └─────────────┘  │
 └─────────────────────────────────────────────────────────────┘
-         │                              │
-         ▼                              ▼
-┌─────────────────┐          ┌─────────────────────┐
-│  Cleaning Cart  │          │  Lighting Machine   │
-│                 │          │                     │
-│  SLAM position  │─────────▶│  Zone Manager       │
-│  data capture   │  query   │       │             │
-└─────────────────┘          │       ▼             │
-                             │  Lutron Bridge      │
-                             │       │             │
-                             └───────┼─────────────┘
-                                     │
-                                     ▼
-                             ┌───────────────┐
-                             │ Lutron Caseta │
-                             │   Dimmers     │
-                             └───────────────┘
 ```
 
-**Zone mapping:**
+**Harvesting logic:**
 ```python
-ZONE_MAP = {
-    # SLAM coordinates -> lighting zone
-    "x:-5to0,y:0to5":    "zone-a",  # Lab area
-    "x:0to5,y:0to5":     "zone-b",  # Main office
-    "x:0to5,y:5to10":    "zone-c",  # Conference
-    "x:-5to0,y:5to10":   "zone-d",  # Kitchen
-}
+TARGET_LUX = 500  # Target workspace illumination
 
-def position_to_zone(x, y):
-    for bounds, zone in ZONE_MAP.items():
-        if in_bounds(x, y, bounds):
-            return zone
-    return None
+def calculate_dimmer_level(ambient_lux, current_level):
+    """Adjust artificial light to maintain target lux."""
+    # Estimate artificial contribution at current level
+    artificial_lux = current_level * 5  # ~500 lux at 100%
+
+    total_lux = ambient_lux + artificial_lux
+    lux_deficit = TARGET_LUX - ambient_lux
+
+    if lux_deficit <= 0:
+        return 0  # Enough natural light
+
+    # Calculate needed artificial level
+    needed_level = min(100, int(lux_deficit / 5))
+    return needed_level
 ```
-
-### Cross-Project Integration
-
-| Project | Integration Point |
-|---------|-------------------|
-| Cleaning Cart | SLAM position → zone activation |
-| Retro Roomba | IR beacon zones → light zones |
-| Dishwasher | Kitchen lights on when active |
-| Box Bot | Recycling area lights when processing |
-| Inventory Tracker | Lab lights when equipment checked out |
 
 ---
 
 ## Notes
 
 **Gap Features This Project Addresses:**
-- **Triggers** - Primary demo of cross-machine triggers
-- **Scheduled Tasks** - Time-based scenes, daylight harvesting
-- **Multi-machine Coordination** - Rovers and lighting work together
-- **IoT Integration** - Extends Viam beyond robotics
+- **Triggers** - Occupancy detection, daylight thresholds, after-hours behavior
+- **Scheduled Tasks** - Time-based scenes, daylight harvesting loop
+- **Custom Module Development** - Lutron Telnet protocol integration
+- **IoT Integration** - Extends Viam beyond robotics into building automation
 
 **Why this project is valuable:**
-- Creates visible cross-project integration
-- Lights literally follow the robots around
-- Demonstrates IoT and building automation
+- Demonstrates IoT and building automation use case
 - Practical energy savings in the office
 - Different skillset than manipulation projects
+- Immediately useful - lights actually work better
 
 **Hardware notes:**
 - Smart Bridge PRO required - standard bridge doesn't support API
