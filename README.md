@@ -12,11 +12,22 @@ We're adding more structure and support. Every engineer will join a project team
 
 ## Hackathon Kickoff: February 24-26
 
-| Day | Schedule |
-| :---- | :---- |
-| Feb 24 | 9am Breakfast, 10am Kickoff, 11am-12pm Exec Office Hours, 12:30pm Lunch, 2pm-4pm Exec Office Hours |
-| Feb 25 | 9am Breakfast, 10am-11am Exec Office Hours, 12pm Lunch, 2pm-4pm Exec Office Hours |
-| Feb 26 | 9am Breakfast, 10am-12:30pm Exec Office Hours, 12:30pm Lunch, 1pm-3pm Final Touches, 4pm Presentations to Judges |
+| Day | Time | Event |
+| :---- | :---- | :---- |
+| **Feb 24** | 9am | Breakfast |
+| | 10am | Kickoff |
+| | 11am-12pm | Exec Office Hours |
+| | 12:30pm | Lunch |
+| | 2pm-4pm | Exec Office Hours |
+| **Feb 25** | 9am | Breakfast |
+| | 10am-11am | Exec Office Hours |
+| | 12pm | Lunch |
+| | 2pm-4pm | Exec Office Hours |
+| **Feb 26** | 9am | Breakfast |
+| | 10am-12:30pm | Exec Office Hours |
+| | 12:30pm | Lunch |
+| | 1pm-3pm | Final Touches |
+| | 4pm | Presentations to Judges |
 
 Remote employees can participate virtually. The Greenhouse and Retro Roomba projects are specifically designed to be remote-friendly. We'll send you the hardware you need.
 
