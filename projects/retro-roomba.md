@@ -16,19 +16,34 @@ No computer vision—just serial communication, bump sensors, and clean abstract
 
 ## Viam Capabilities Demonstrated
 
-| Capability | Coverage | Notes |
-|------------|----------|-------|
-| Custom Module Development | Primary | Build driver from scratch |
-| Hardware Abstraction | Primary | Implement base, sensor, power_sensor, movement_sensor APIs |
-| Protocol Implementation | Primary | Roomba Open Interface serial protocol |
-| Data Capture & Sync | Strong | Sensor logs, battery cycles, patrol data |
-| Event-Driven Automation | Strong | Low battery, dock needed, bump detected |
-| Remote Operation | Strong | Control through app and SDKs |
-| Fleet Management | Stretch | Multiple Roombas |
-| Fragments | Strong | Hardware fragment for Roomba setup |
-| Module Registry | Strong | Publish and version the driver |
-| SDK Development | Strong | Python, Go, TypeScript clients |
-| Customer Delivery | Stretch | Guest control interface |
+### Core Capabilities
+- [x] **Hardware Integration** — Roomba base, bump sensors, power sensor, movement sensor
+- [ ] **Motion Planning** — Not applicable (simple base control)
+- [ ] **Vision / ML Inference** — Not applicable (bump sensor based)
+- [x] **Data Capture & Sync** — Sensor logs, battery cycles, patrol data
+- [x] **Remote Operation** — Control through app and SDKs via WebRTC
+- [x] **Module Development** — Primary: build driver module from scratch
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Hardware fragment for Roomba configuration
+- [ ] **Fleet Management** — Stretch: multiple Roombas
+- [x] **OTA Updates** — Publish and version driver via Registry
+- [ ] **Provisioning** — Stretch: streamlined multi-Roomba setup
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Low battery, dock needed, bump detected
+- [ ] **Scheduled Tasks** — Stretch: scheduled patrol times
+- [ ] **Monitoring & Alerting** — Backlog: battery degradation alerts
+- [ ] **Data Pipeline (ML Training)** — Not applicable
+
+### Customer-Facing Capabilities
+- [ ] **Customer Delivery** — Stretch: guest control interface
+- [ ] **Web/Mobile Apps** — Backlog: TypeScript/Flutter control apps
+
+### Primary Focus
+- **Custom Module Development** — Build complete driver from scratch
+- **Hardware Abstraction** — Implement base, sensor, power_sensor, movement_sensor APIs
+- **Protocol Implementation** — Roomba Open Interface serial protocol
 
 ---
 

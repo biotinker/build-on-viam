@@ -16,19 +16,32 @@ This project naturally exercises the full robotics lifecycle - from prototype th
 
 ## Viam Capabilities Demonstrated
 
-- [ ] Motion / Arm Control (stretch: harvesting)
-- [ ] Vision / ML (ripeness detection)
-- [x] Data Management
-- [x] Fleet Management (multi-station) ← **Primary fleet demo**
-- [x] Remote Operation
-- [ ] Modular Resources
-- [x] Multi-machine Coordination ← **Multiple sensor stations**
-- [x] Cloud Integration
-- [x] Event-Driven Automation ← **Threshold-based automation**
-- [x] Fragments (environment recipes)
-- [x] Monitoring/Alerting ← **Environmental alerts**
-- [x] Data Pipeline ← **Capture → Train → Deploy cycle**
-- [x] Scheduled Tasks ← **Periodic readings, daily reports**
+### Core Capabilities
+- [ ] **Hardware Integration** — Sensors (temp, humidity, soil, light), actuators (pump, lights, fans)
+- [ ] **Motion Planning** — Stretch: harvesting arm
+- [ ] **Vision / ML Inference** — Backlog: ripeness detection, growth tracking
+- [x] **Data Capture & Sync** — Environmental data synced to cloud with offline resilience
+- [x] **Remote Operation** — Full remote monitoring and control
+- [ ] **Module Development** — Backlog: custom sensor/actuator modules
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Environment recipes as reusable configurations
+- [x] **Fleet Management** — Primary demo: multiple grow stations with centralized monitoring
+- [ ] **OTA Updates** — Backlog: push recipe updates to all stations
+- [ ] **Provisioning** — Backlog: automated new station setup
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Threshold-based: humidity, temperature, soil moisture, light
+- [x] **Scheduled Tasks** — Periodic readings, daily reports, time-lapse capture
+- [x] **Monitoring & Alerting** — Environmental alerts, fleet health dashboard
+- [x] **Data Pipeline (ML Training)** — Growth images → labeling → ripeness model → deploy
+
+### Customer-Facing Capabilities
+- [ ] **Customer Delivery** — Not applicable
+- [ ] **Web/Mobile Apps** — Backlog: environmental dashboard
+
+### Multi-Machine Coordination
+- [x] **Multiple sensor stations** — Centralized monitoring, cross-station comparison
 
 ## Hardware Requirements
 

@@ -16,18 +16,29 @@ This project demonstrates manipulation capabilities, vision-based detection, and
 
 ## Viam Capabilities Demonstrated
 
-- [x] Motion / Arm Control
-- [x] Gripper Manipulation
-- [x] Vision / ML (pour level detection, glass detection)
-- [x] Data Management (pour analytics)
-- [ ] Fleet Management
-- [x] Remote Operation
-- [x] Modular Resources
-- [ ] Multi-machine Coordination
-- [x] Cloud Integration
-- [x] Customer Delivery ← **Primary customer-facing demo**
-- [x] Event-Driven Automation ← **Glass placement, bottle empty**
-- [x] Scheduled Tasks ← **Cleaning cycles**
+### Core Capabilities
+- [x] **Hardware Integration** — Arm, gripper, camera, sensors
+- [x] **Motion Planning** — Motion service for bottle/glass handling
+- [x] **Vision / ML Inference** — Pour level detection, glass detection
+- [x] **Data Capture & Sync** — Pour analytics synced to cloud
+- [x] **Remote Operation** — Develop control logic remotely
+- [x] **Module Development** — Custom vino service module
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Hardware configuration as reusable fragment
+- [ ] **Fleet Management** — Stretch: multi-station deployment
+- [ ] **OTA Updates** — Not primary focus
+- [ ] **Provisioning** — Not primary focus
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Glass placement, bottle empty, order received
+- [x] **Scheduled Tasks** — Cleaning cycles
+- [ ] **Monitoring & Alerting** — Backlog: bottle levels, temperature
+- [ ] **Data Pipeline (ML Training)** — Not primary focus
+
+### Customer-Facing Capabilities
+- [x] **Customer Delivery** — Primary demo: TypeScript SDK web ordering
+- [x] **Web/Mobile Apps** — Web ordering interface for guests
 
 ## Hardware Requirements
 

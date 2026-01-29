@@ -16,16 +16,29 @@ This project demonstrates event-driven automation, scheduled tasks, IoT integrat
 
 ## Viam Capabilities Demonstrated
 
-- [x] Custom Module Development ← **Lutron Telnet protocol module**
-- [x] Event-Driven Automation ← **Primary demo: occupancy, daylight thresholds**
-- [x] Scheduled Tasks ← **Time-based scenes, daylight harvesting**
-- [x] Data Capture ← **Lighting events, energy usage**
-- [x] Fleet Management ← **Multiple light zones as fleet**
-- [x] Remote Operation
-- [x] Modular Resources
-- [ ] Motion / Arm Control
-- [ ] Vision / ML
-- [x] Cloud Integration
+### Core Capabilities
+- [ ] **Hardware Integration** — Lutron Bridge, dimmers, switches, motion sensors, light sensor
+- [ ] **Motion Planning** — Not applicable
+- [ ] **Vision / ML Inference** — Not applicable
+- [x] **Data Capture & Sync** — Lighting events, energy usage synced to cloud
+- [x] **Remote Operation** — Full remote control and development
+- [x] **Module Development** — Primary: Lutron Telnet protocol module
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Zone configurations as reusable fragments
+- [x] **Fleet Management** — Multiple light zones managed as fleet
+- [ ] **OTA Updates** — Not primary focus
+- [ ] **Provisioning** — Not primary focus
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Primary: occupancy, daylight thresholds, after-hours behavior
+- [x] **Scheduled Tasks** — Primary: time-based scenes, daylight harvesting loop
+- [ ] **Monitoring & Alerting** — Backlog: zone status dashboard
+- [ ] **Data Pipeline (ML Training)** — Not applicable
+
+### Customer-Facing Capabilities
+- [ ] **Customer Delivery** — Not applicable
+- [ ] **Web/Mobile Apps** — Backlog: lighting control dashboard
 
 ## Hardware Requirements
 

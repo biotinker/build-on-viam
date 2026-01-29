@@ -18,20 +18,29 @@ This project combines manipulation complexity (multi-step beverage preparation),
 
 ## Viam Capabilities Demonstrated
 
-- [x] Motion / Arm Control ← **Complex multi-step manipulation**
-- [x] Gripper Manipulation ← **Portafilter, cups, milk pitcher**
-- [x] Vision / ML ← **Cup detection, fill level, foam quality**
-- [x] Data Management ← **Order history, drink analytics**
-- [x] Fleet Management ← **Multiple coffee stations**
-- [x] Remote Operation
-- [x] Modular Resources
-- [ ] Multi-machine Coordination
-- [x] Cloud Integration
-- [x] Customer Delivery ← **Ordering app, preferences**
-- [x] Event-Driven Automation ← **Order received, brew complete**
-- [x] Scheduled Tasks ← **Cleaning cycles, warmup**
-- [x] Monitoring/Alerting ← **Bean level, water, temperature**
-- [x] Data Pipeline ← **Quality images for training**
+### Core Capabilities
+- [x] **Hardware Integration** — Arm, gripper, espresso machine, grinder, auto-tamper, cameras
+- [x] **Motion Planning** — Complex multi-step manipulation workflow
+- [x] **Vision / ML Inference** — Cup detection, fill level, foam quality assessment
+- [x] **Data Capture & Sync** — Order history, drink analytics synced to cloud
+- [x] **Remote Operation** — Develop control logic remotely
+- [x] **Module Development** — Custom barista service module
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Hardware configuration as reusable fragment
+- [x] **Fleet Management** — Multiple coffee stations with centralized monitoring
+- [ ] **OTA Updates** — Backlog: push recipe updates to all stations
+- [ ] **Provisioning** — Backlog: automated new station setup
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Order received, brew complete, low beans alert
+- [x] **Scheduled Tasks** — Morning warmup, cleaning cycles, inventory check
+- [x] **Monitoring & Alerting** — Bean level, water, temperature, usage metrics
+- [x] **Data Pipeline (ML Training)** — Drink quality images, shot timing for grind tuning
+
+### Customer-Facing Capabilities
+- [x] **Customer Delivery** — Tablet ordering interface, guest profiles
+- [x] **Web/Mobile Apps** — TypeScript/Flutter SDK ordering apps
 
 ## Hardware Requirements
 

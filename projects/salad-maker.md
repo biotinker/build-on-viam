@@ -18,19 +18,32 @@ This project demonstrates advanced manipulation with dual-arm coordination, visi
 
 ## Viam Capabilities Demonstrated
 
-- [x] Motion / Arm Control ← **Dual-arm coordination**
-- [x] Gripper Manipulation ← **Tongs-style for varied ingredients**
-- [x] Vision / ML ← **Ingredient detection, portion estimation**
-- [x] Data Management ← **Order history, ingredient usage**
-- [ ] Fleet Management
-- [x] Remote Operation
-- [x] Modular Resources
-- [x] Multi-machine Coordination ← **Two arms working together**
-- [x] Cloud Integration
-- [x] Customer Delivery ← **Ordering app/kiosk**
-- [x] Event-Driven Automation ← **Order received, bowl ready, low ingredient**
-- [x] Scheduled Tasks ← **Cleaning, inventory checks**
-- [x] Data Pipeline ← **Ingredient images for portion training**
+### Core Capabilities
+- [x] **Hardware Integration** — Dual arms, grippers, cameras, prep station sensors
+- [x] **Motion Planning** — Dual-arm coordination, collision avoidance
+- [x] **Vision / ML Inference** — Ingredient detection, portion estimation
+- [x] **Data Capture & Sync** — Order history, ingredient usage synced to cloud
+- [x] **Remote Operation** — Develop coordination logic remotely
+- [x] **Module Development** — Custom salad service module
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Hardware configuration as reusable fragment
+- [ ] **Fleet Management** — Stretch: multiple prep stations
+- [ ] **OTA Updates** — Not primary focus
+- [ ] **Provisioning** — Not primary focus
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Order received, bowl ready, low ingredient alerts
+- [x] **Scheduled Tasks** — Morning prep check, cleaning cycles, inventory checks
+- [ ] **Monitoring & Alerting** — Backlog: ingredient levels, temperature
+- [x] **Data Pipeline (ML Training)** — Portion images for grab consistency training
+
+### Customer-Facing Capabilities
+- [x] **Customer Delivery** — Ordering kiosk/app, order status display
+- [x] **Web/Mobile Apps** — Flutter SDK for mobile ordering
+
+### Multi-Machine Coordination
+- [x] **Two arms working together** — Parallel grab, hold-and-add, collision avoidance
 
 ## Hardware Requirements
 

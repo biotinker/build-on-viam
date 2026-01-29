@@ -22,18 +22,32 @@ This approach is pragmatic - it works on day one with zero training, builds its 
 
 ## Viam Capabilities Demonstrated
 
-- [ ] Motion / Arm Control
-- [x] Vision / ML ← **Item recognition, face recognition (phased)**
-- [x] Data Management ← **Checkout logs, captured images, inventory state**
-- [x] Fleet Management ← **Multiple checkout stations**
-- [x] Remote Operation
-- [x] Modular Resources ← **Checkout station module**
-- [x] Multi-machine Coordination ← **Stations report to central system**
-- [x] Cloud Integration
-- [x] Customer Delivery ← **Dashboard for viewing checkouts and audit trail**
-- [x] Event-Driven Automation ← **Checkout detection, overdue alerts, notifications**
-- [x] Scheduled Tasks ← **Daily reports, weekly utilization summaries**
-- [x] Data Pipeline ← **Captured images train item/face recognition models**
+### Core Capabilities
+- [ ] **Hardware Integration** — Camera, optional button, display
+- [ ] **Motion Planning** — Not applicable
+- [x] **Vision / ML Inference** — Item recognition, face recognition (phased)
+- [x] **Data Capture & Sync** — Checkout images synced to cloud with offline resilience
+- [x] **Remote Operation** — Full remote monitoring and development
+- [x] **Module Development** — Checkout station module
+
+### Scale & Fleet Capabilities
+- [x] **Fragments** — Checkout station configuration as reusable fragment
+- [x] **Fleet Management** — Multiple checkout stations with centralized view
+- [ ] **OTA Updates** — Backlog: push model updates to all stations
+- [ ] **Provisioning** — Backlog: automated new station setup
+
+### Operational Capabilities
+- [x] **Event-Driven Automation** — Checkout detection, overdue alerts, escalating notifications
+- [x] **Scheduled Tasks** — Daily summaries, weekly utilization reports
+- [ ] **Monitoring & Alerting** — Backlog: station health, low activity alerts
+- [x] **Data Pipeline (ML Training)** — Primary: captured images → labeling → item/face models → deploy
+
+### Customer-Facing Capabilities
+- [x] **Customer Delivery** — Dashboard for viewing checkouts and audit trail
+- [x] **Web/Mobile Apps** — Web dashboard, mobile-friendly checkout status
+
+### Multi-Machine Coordination
+- [x] **Stations report to central system** — Centralized view across all locations
 
 ## Hardware Requirements
 
