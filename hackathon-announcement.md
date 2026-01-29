@@ -4,13 +4,30 @@ Hi everyone,
 
 As mentioned at the recent all-hands, we're launching **Build on Viam** — a program where we become our own best customers by building real robotics applications on the Viam platform.
 
-Deep platform familiarity isn't optional — it's what enables us to work faster and more effectively. Every hour spent navigating unfamiliar parts of the platform, debugging issues we could have anticipated, or building something that already exists is time we're not shipping. This program is an investment that pays back in velocity: engineers who deeply understand Viam make better decisions, move faster, and build better products.
+Deep platform familiarity isn't optional — it's what enables us to work faster and more effectively. Every hour spent navigating unfamiliar parts of the platform, debugging issues we could have anticipated, or going down dead-end paths is time we're not shipping new features or user experience improvements. This program is an investment that pays back in velocity: engineers who deeply understand Viam make better decisions, move faster, and build better products.
+
+## The Projects
+
+The program is built around a set of well-defined robotics applications that we'll develop over the coming months, starting with a hackathon kickoff. Each project has clear goals, exercises key Viam capabilities, and has a well-defined backlog that extends beyond the hackathon:
+
+- **Barista** — Single-arm robot that operates an espresso station like a human barista
+- **Chess** — Robot that plays chess against humans, physically moving pieces on a real board
+- **Greenhouse** — Automated growing environment with sensing, environmental control, and growth tracking
+- **Inventory Tracker** — Track lab equipment with zero-tagging vision
+- **Retro Roomba** — Bring a Roomba 650/655 into the Viam ecosystem with a custom driver module
+- **Salad Maker** — Dual-arm robot that assembles custom salads from a refrigerated prep station
+- **Smart Lighting** — Intelligent lighting that responds to occupancy, daylight, and schedules
+- **Vino** — Wine service robot that pours and serves wine on demand
+
+We welcome additional project proposals — more on that below.
 
 ## What's changing with 20% time?
 
-We're adding more structure and support. Every engineer will join a project team for the quarter, dedicating approximately 4 hours per week. We'll kick off with a 3-day hackathon, followed by bi-weekly demos and regular syncs throughout the quarter. Enablement sessions on robotics fundamentals, AI, platform capabilities, and best practices will be available as needed.
+We're adding more structure and support. Every engineer will join a project team for the quarter, dedicating at least 4 hours per week. We'll kick off with a 3-day hackathon, followed by bi-weekly demos and regular syncs throughout the quarter. Enablement sessions on using AI more effectively, robotics fundamentals, platform capabilities, and best practices will be available as needed.
 
-## The Hackathon: February 24-26
+## Hackathon Kickoff: February 24-26
+
+We're kicking off the program with a hackathon!
 
 | Day | Schedule |
 |-----|----------|
