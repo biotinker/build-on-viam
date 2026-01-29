@@ -11,7 +11,7 @@ Build on Viam is an internal program where Viam engineers build real robotics pr
 | [Barista](../projects/barista.md) | Single-arm robot that operates an espresso station like a human barista |
 | [Chess](../projects/chess.md) | Robot that plays chess against humans, physically moving pieces on a real board |
 | [Greenhouse](../projects/greenhouse.md) | Automated growing environment with sensing, environmental control, and growth tracking |
-| [Inventory Tracker](../projects/inventory-tracker.md) | Track lab equipment with zero-tagging vision - just hold up an item and go; auditing of items borrowed and nagging for returns |
+| [Inventory Tracker](../projects/inventory-tracker.md) | Track lab equipment with zero-tagging vision - just hold up an item and go
 | [Retro Roomba](../projects/retro-roomba.md) | Bring a Roomba 650/655 into the Viam ecosystem with a custom driver module and new capabilities |
 | [Salad Maker](../projects/salad-maker.md) | Dual-arm robot that assembles custom salads from a refrigerated prep station |
 | [Smart Lighting](../projects/smart-lighting.md) | Intelligent lighting that responds to occupancy, daylight, and schedules |
