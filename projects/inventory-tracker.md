@@ -2,7 +2,7 @@
 
 ## Overview
 
-**One-line description:** Track lab equipment with RFID/vision, manage checkouts, alert on low stock or overdue items
+**One-line description:** Track lab equipment with zero-tagging vision - just hold up an item and go
 
 **Project Lead:** TBD
 **Team Members:** TBD
@@ -10,160 +10,215 @@
 
 ## Description
 
-Lab Inventory Tracker is a system for tracking shared lab equipment - who has what, when it's due back, and what needs reordering. Engineers check out items via an app (scan RFID or select from list), and the system tracks everything. Cameras periodically audit shelves to detect discrepancies between what's checked out and what's actually there.
+Lab Inventory Tracker solves the "where's the RealSense?" problem without requiring barcodes, RFID tags, or any tagging of objects. The core interaction is simple: hold an item up in front of a camera, and the system captures the moment for tracking.
 
-This project solves a real problem (missing equipment, stockouts) while demonstrating Viam capabilities that manipulation-heavy projects don't emphasize: data capture, triggers, scheduled tasks, and customer-facing apps.
+**Phase 1 (MVP):** Detect checkout events and capture a photo of who took what. Notifications go to Slack with the image - providing an immediate audit trail even before any ML is trained.
+
+**Phase 2:** Train the system to recognize common lab items from the captured images, automatically identifying WHAT was taken.
+
+**Phase 3:** Add face recognition to identify WHO took the item, enabling fully automatic checkout logging.
+
+This approach is pragmatic - it works on day one with zero training, builds its own training data through normal use, and evolves toward full automation incrementally.
 
 ## Viam Capabilities Demonstrated
 
 - [ ] Motion / Arm Control
-- [x] Vision / ML ← **Item detection, shelf audit**
-- [x] Data Management ← **Primary demo: checkout logs, inventory state**
-- [x] Fleet Management ← **Multiple storage locations**
+- [x] Vision / ML ← **Item recognition, face recognition (phased)**
+- [x] Data Management ← **Checkout logs, captured images, inventory state**
+- [x] Fleet Management ← **Multiple checkout stations**
 - [x] Remote Operation
-- [x] Modular Resources ← **RFID reader module**
-- [x] Multi-machine Coordination ← **Shelf stations report to central system**
+- [x] Modular Resources ← **Checkout station module**
+- [x] Multi-machine Coordination ← **Stations report to central system**
 - [x] Cloud Integration
-- [x] Customer Delivery ← **Checkout app with user auth**
-- [x] Triggers ← **Overdue alerts, low stock, discrepancy detection**
-- [x] Scheduled Tasks ← **Daily audit, weekly reports**
+- [x] Customer Delivery ← **Dashboard for viewing checkouts and audit trail**
+- [x] Triggers ← **Checkout detection, overdue alerts, notifications**
+- [x] Scheduled Tasks ← **Daily reports, weekly utilization summaries**
+- [x] Data Pipeline ← **Captured images train item/face recognition models**
 
 ## Hardware Requirements
 
 | Component | Description | Options |
 |-----------|-------------|---------|
-| Compute | Per-shelf controller | Raspberry Pi 5 |
-| Camera | Shelf monitoring | USB webcam, Pi Camera |
-| RFID Reader | Item/badge scanning | RC522, PN532 |
-| RFID Tags | Item identification | 13.56MHz stickers |
-| Barcode Scanner | Alternative to RFID | USB barcode scanner |
-| Weight Sensors | Detect item removal (optional) | HX711 + load cells |
-| Tablet | Checkout kiosk | Android tablet or iPad |
-| Shelving | Storage display | Wire shelving or existing |
+| Compute | Checkout station controller | Raspberry Pi 5 |
+| Camera | Capture person + item | USB webcam, Pi Camera |
+| Display (optional) | Feedback to user | Small LCD or status LEDs |
+| Mounting | Camera position | Shelf-mounted, wall-mounted, or freestanding kiosk |
 
-**Remote-Friendly:** Yes - app development fully remote, ML training remote, physical setup minimal
+**Estimated Cost per Station:** ~$100-150
+
+**Remote-Friendly:** Yes - ML training fully remote, app development remote, physical setup minimal
 
 ---
 
 ## MVP Options
 
-Select one for hackathon scope:
+### Phase 1: Capture the Moment (Recommended MVP)
 
-### Option A: Barcode Checkout (Recommended)
-Scan barcode to check in/out, web app shows inventory state.
+Detect checkout events and capture photos for audit trail.
+
+**Flow:**
+1. Person approaches checkout station
+2. Holds item up in front of camera (in designated "checkout zone")
+3. System detects the gesture/motion and captures photo
+4. Photo saved to cloud with timestamp
+5. Notification sent to Slack with image: "Checkout at 10:32am - [photo]"
+6. Human review if needed - photo serves as audit trail
+
+**Trigger options:**
+- Motion detection in designated zone
+- "Person holding object" pose detection
+- Physical button press (simplest)
+- Continuous monitoring with ML detecting checkout gesture
+
 - **Complexity:** Low-Medium
-- **Demo Appeal:** Medium
-- **Scope:** Checkout flow, basic triggers, dashboard
-
-### Option B: RFID Checkout
-RFID badge + item tags for faster scanning.
-- **Complexity:** Medium
 - **Demo Appeal:** Medium-High
-- **Scope:** RFID module development, same checkout flow
+- **Scope:** Vision trigger, data capture, notifications, basic dashboard
 
-### Option C: Vision Audit
-Camera detects items on shelf, compares to checkout records.
-- **Complexity:** Medium-High
+### Phase 2: Item Recognition
+
+Add ML to identify WHAT was taken.
+
+- Train model on captured images from Phase 1
+- System auto-labels checkout with item name
+- "Checkout at 10:32am - Intel RealSense D435 - [photo]"
+- Unknown items flagged for manual labeling (feeds training)
+
+- **Complexity:** Medium
 - **Demo Appeal:** High
-- **Scope:** ML model training, discrepancy detection
+- **Scope:** ML training pipeline, model deployment, item database
 
-### Option D: Full System
-RFID checkout + vision audit + multiple locations.
-- **Complexity:** High
+### Phase 3: Face Recognition
+
+Add ML to identify WHO took the item.
+
+- Build face database from Phase 1/2 photos (with consent)
+- System auto-identifies person
+- "Shannon checked out Intel RealSense D435 at 10:32am"
+- Full automatic checkout - no human review needed
+
+- **Complexity:** Medium-High
 - **Demo Appeal:** Very High
-- **Scope:** Complete inventory management system
+- **Scope:** Face recognition model, user database, privacy controls
 
-**Selected MVP:** _______________
+### Phase 4: Full Automation
+
+Complete hands-free tracking.
+
+- Automatic checkout logging (item + person + time)
+- Return detection (item appears back on shelf)
+- Overdue reminders sent to the right person
+- Usage analytics and trends
+
+**Selected MVP:** Phase 1 - Capture the Moment
 
 ---
 
 ## Backlog
 
-Select 3-5 items for post-hackathon development:
+### Phase 1: Capture & Notify
+- [ ] **Checkout zone detection** - Define camera FOV region for checkout gestures
+- [ ] **Motion/gesture trigger** - Detect when someone holds up an item
+- [ ] **Photo capture** - High-quality image of person + item together
+- [ ] **Cloud storage** - Save images with timestamps to Viam data management
+- [ ] **Slack notification** - Send photo + timestamp to channel on each checkout
+- [ ] **Basic dashboard** - View recent checkouts with images
+- [ ] **Manual labeling UI** - Add item name and person to captured checkouts
 
-### Checkout & Tracking
-- [ ] **RFID checkout** - Tap badge, tap item, done
-- [ ] **Mobile app** - Flutter SDK checkout from phone
-- [ ] **Self-service kiosk** - Tablet-based checkout station
-- [ ] **Bulk checkout** - Check out multiple items at once
-- [ ] **Transfer between locations** - Move item from Lab A to Lab B
+### Phase 2: Item Recognition
+- [ ] **Training data export** - Export labeled images for model training
+- [ ] **Item classifier** - Train model to recognize common lab equipment
+- [ ] **Auto-labeling** - Apply model to new checkouts
+- [ ] **Confidence thresholds** - Flag low-confidence detections for review
+- [ ] **Unknown item handling** - Queue unrecognized items for labeling
+- [ ] **Model retraining pipeline** - Improve model as more data collected
 
-### Vision & ML
-- [ ] **Item detection model** - Train model to recognize common lab items
-- [ ] **Shelf audit** - Compare ML detection vs. checkout records
-- [ ] **Discrepancy alerts** - Item on shelf but checked out, or vice versa
-- [ ] **New item detection** - Flag unknown items for cataloging
+### Phase 3: Face Recognition
+- [ ] **User consent flow** - Opt-in for face recognition
+- [ ] **Face database** - Store face embeddings for enrolled users
+- [ ] **Face matching** - Identify person during checkout
+- [ ] **Privacy controls** - Users can delete their data, opt out
+- [ ] **Unknown person handling** - Prompt for identification or flag for review
 
 ### Triggers (Gap Feature)
-- [ ] **Overdue trigger** - Item checked out > N days, send reminder
-- [ ] **Escalating reminders** - 1 day, 3 days, 7 days, then manager
-- [ ] **Low stock trigger** - Quantity below threshold, alert to reorder
-- [ ] **Missing item trigger** - Expected on shelf but not detected
-- [ ] **Return reminder** - Notify when leaving building (stretch: BLE beacon)
+- [ ] **Checkout detected** - Trigger capture + notification on gesture detection
+- [ ] **Overdue reminder** - Item not returned after N days, notify (requires Phase 3)
+- [ ] **Escalating alerts** - 3 days, 7 days, then notify manager
+- [ ] **Return detected** - Item reappears on shelf camera (stretch)
 
 ### Scheduled Tasks (Gap Feature)
-- [ ] **Daily inventory snapshot** - Capture shelf images at 6 AM
-- [ ] **Weekly utilization report** - Most used items, longest checkouts
-- [ ] **Monthly audit** - Full physical vs. system reconciliation
-- [ ] **Expiration check** - Alert on items past calibration/expiry date
+- [ ] **Daily summary** - Morning report of previous day's checkouts
+- [ ] **Weekly utilization** - Most checked-out items, longest holds
+- [ ] **Shelf audit** - Periodic shelf camera capture for reconciliation
 
 ### Customer Delivery (Gap Feature)
-- [ ] **Web checkout app** - TypeScript SDK, user authentication
-- [ ] **Mobile app** - Flutter SDK for checkout on the go
-- [ ] **Per-team views** - Each team sees their checked-out items
-- [ ] **Admin dashboard** - Full inventory visibility, user management
-- [ ] **Slack integration** - Checkout notifications to channel
+- [ ] **Web dashboard** - View all checkouts, search, filter
+- [ ] **Mobile-friendly** - Check inventory status from phone
+- [ ] **Per-team views** - Filter by team or location
+- [ ] **Admin tools** - Manage items, users, locations
 
-### Data & Analytics
-- [ ] **Usage trends** - Which items are most requested
-- [ ] **Predict stockouts** - ML-based reorder suggestions
-- [ ] **Item lifecycle** - New → in-use → retired tracking
-- [ ] **Export for procurement** - Generate purchase requests
+### Data Pipeline (Gap Feature)
+- [ ] **Image capture** - Every checkout builds training dataset
+- [ ] **Labeling interface** - Easy annotation of item + person
+- [ ] **Model training** - Train/retrain in Viam
+- [ ] **Model deployment** - Push updated models to stations
+- [ ] **A/B testing** - Compare model versions
 
 ### Fleet & Scale
-- [ ] **Multiple locations** - Hardware lab, supply closet, main office
-- [ ] **Centralized dashboard** - All locations in one view
-- [ ] **Fragment for shelf config** - Reusable configuration per shelf
-- [ ] **Cross-location search** - "Where's the RealSense?"
+- [ ] **Multiple stations** - Hardware lab, supply closet, kitchen
+- [ ] **Centralized view** - All stations in one dashboard
+- [ ] **Station fragments** - Reusable config per checkout station
+- [ ] **Cross-location search** - "Where's the RealSense?" across all locations
 
 ---
 
 ## Stretch Goals
 
-- [ ] Integration with procurement system (auto-reorder)
-- [ ] QR code generation for new items
+- [ ] Return detection via shelf camera (item reappears)
 - [ ] Voice assistant ("Where's the soldering iron?")
 - [ ] Reservation system for high-demand items
-- [ ] Calibration tracking and reminders
+- [ ] Integration with procurement (auto-reorder on low stock)
+- [ ] Mobile app for checking inventory on the go
 
 ---
 
 ## Success Criteria
 
-**MVP Complete When:**
-- [ ] User can check out an item via app
-- [ ] User can check in an item via app
-- [ ] Dashboard shows current inventory state
-- [ ] Overdue alert triggers correctly
-- [ ] Low stock alert triggers correctly
+**Phase 1 (MVP) Complete When:**
+- [ ] Camera detects checkout gesture reliably
+- [ ] Photo captured and saved to cloud on each checkout
+- [ ] Slack notification sent with image within 5 seconds
+- [ ] Dashboard shows recent checkouts with images
+- [ ] Works reliably for 10+ checkouts in a row
+
+**Phase 2 Complete When:**
+- [ ] Model recognizes 20+ common lab items with >90% accuracy
+- [ ] Auto-labeling applied to new checkouts
+- [ ] Unknown items queued for manual labeling
+- [ ] Retraining pipeline works end-to-end
+
+**Phase 3 Complete When:**
+- [ ] Face recognition identifies enrolled users accurately
+- [ ] Full automatic checkout (item + person + time) logged
+- [ ] Overdue reminders sent to correct person
+- [ ] Privacy controls implemented and documented
 
 **Project Complete When:**
-- [ ] RFID checkout working
-- [ ] ML model detects common lab items
-- [ ] Automated audit compares detection vs. records
-- [ ] Multiple locations configured as fleet
-- [ ] 30 days of usage data captured
+- [ ] System runs unattended for 30+ days
+- [ ] Training data pipeline feeds model improvements
+- [ ] Multiple checkout stations deployed
+- [ ] Documentation complete
 
 ---
 
 ## Documentation Deliverables
 
 - [ ] README with setup instructions
-- [ ] Hardware wiring guide (RFID, cameras)
-- [ ] Item tagging guide
-- [ ] Checkout app user guide
-- [ ] Admin dashboard guide
+- [ ] Hardware assembly guide (camera mounting)
+- [ ] Checkout station placement guide
+- [ ] Dashboard user guide
 - [ ] Adding new items guide
+- [ ] Model training guide
+- [ ] Privacy policy for face recognition
 
 ---
 
@@ -178,91 +233,120 @@ Select 3-5 items for post-hackathon development:
 
 ## Technical Details
 
-### RFID Integration
+### Checkout Detection
 
-**Hardware:** RC522 module connected via SPI to Raspberry Pi
-
-**Python library:** [pi-rc522](https://github.com/ondryaso/pi-rc522)
-
-**Viam module structure:**
+**Approach 1: Motion + Pose Detection**
 ```
-rfid-reader/
-├── main.go (or main.py)
-├── rfid_sensor.go
-└── meta.json
+1. Camera monitors checkout zone continuously
+2. Motion detected → start analyzing frames
+3. Detect "person holding object" pose
+4. Capture high-res frame
+5. Save + notify
 ```
 
-**Component type:** `sensor` - returns UID of scanned tag
-
-**Example reading:**
-```json
-{
-  "tag_present": true,
-  "tag_uid": "04:A2:B3:C4:D5:E6:F7",
-  "tag_type": "MIFARE Classic 1K",
-  "timestamp": "2024-01-15T10:30:00Z"
-}
+**Approach 2: Simple Button**
+```
+1. Person holds up item
+2. Presses physical button
+3. Camera captures frame
+4. Save + notify
 ```
 
-### Vision-Based Audit
+**Approach 3: Dwell Time**
+```
+1. Camera monitors checkout zone
+2. Person + object detected in zone
+3. If stable for 2 seconds → capture
+4. Save + notify
+```
 
-**Approach:**
-1. Camera captures shelf image on schedule
-2. ML model detects items present
-3. Compare to checkout database
-4. Alert on discrepancies
+Recommendation: Start with Approach 2 (button) for reliability, evolve to Approach 1 or 3.
 
-**Model training:**
-- Capture images of items during normal operation
-- Label with item IDs
-- Train classifier in Viam
-- Deploy to shelf machines
-
-### Database Schema
+### Data Schema
 
 ```
+checkouts:
+  - id: string (uuid)
+  - timestamp: datetime
+  - image_url: string (cloud storage path)
+  - item_name: string (nullable - manual or ML)
+  - item_confidence: float (nullable - ML confidence)
+  - person_name: string (nullable - manual or ML)
+  - person_confidence: float (nullable - ML confidence)
+  - station_id: string
+  - status: enum (pending_review, labeled, auto_labeled)
+
 items:
-  - id: string (barcode/RFID UID)
+  - id: string
   - name: string
   - category: string
-  - location: string
-  - quantity: int
-  - reorder_threshold: int
-
-checkouts:
-  - id: string
-  - item_id: string
-  - user_id: string
-  - checked_out_at: timestamp
-  - due_at: timestamp
-  - returned_at: timestamp (nullable)
+  - location: string (home station)
+  - image_urls: array (reference images for training)
 
 users:
   - id: string
   - name: string
   - email: string
   - team: string
+  - face_enrolled: boolean
+  - face_embedding: blob (nullable)
 ```
+
+### Notification Format
+
+**Slack message:**
+```
+📦 Checkout detected
+📍 Hardware Lab Station
+🕐 10:32 AM
+
+[Embedded photo of person holding item]
+
+Item: [Unknown - click to label] or [Intel RealSense D435]
+Person: [Unknown - click to label] or [Shannon]
+```
+
+### ML Pipeline
+
+**Item Recognition:**
+1. Export labeled checkout images
+2. Crop to item region (manual or detected)
+3. Train classifier (transfer learning from ImageNet)
+4. Deploy to checkout stations
+5. Monitor accuracy, retrain as needed
+
+**Face Recognition:**
+1. Collect face images during enrollment (multiple angles)
+2. Generate face embeddings (e.g., using face_recognition library)
+3. Store embeddings in user database
+4. On checkout, extract face → find nearest embedding
+5. Apply confidence threshold for match
 
 ---
 
 ## Notes
 
+**Why no tagging:**
+- Zero friction for users - just hold up and go
+- No inventory of tags to manage
+- Works with any item immediately
+- System improves over time through use
+
 **Gap Features This Project Addresses:**
-- **Customer Delivery** - Primary demo of checkout app with TypeScript SDK
-- **Triggers** - Overdue alerts, low stock, discrepancy detection
-- **Scheduled Tasks** - Daily snapshots, weekly reports, audits
-- **Data Capture** - All checkout events logged and queryable
-- **Fleet** - Multiple storage locations managed centrally
+- **Triggers** - Checkout detection, overdue alerts
+- **Data Pipeline** - Images → labels → training → deployment
+- **Scheduled Tasks** - Daily summaries, weekly reports
+- **Customer Delivery** - Dashboard with audit trail
 
-**Why this project is valuable:**
-- Solves real problem the team faces daily
-- Simple hardware, high learning value
-- Remote-friendly development
-- Demonstrates capabilities manipulation projects don't
+**Privacy Considerations:**
+- Face recognition requires explicit opt-in
+- Users can view and delete their data
+- Option to use system without face recognition (photo audit only)
+- Clear signage at checkout stations
+
+**Why this approach is valuable:**
+- Works on day one with zero ML training
+- Builds its own training data through normal use
+- Each phase adds value incrementally
+- Solves real problem the team faces
 - System will actually be used after hackathon
-
-**RFID vs Barcode:**
-- RFID: Faster, works through packaging, more expensive tags
-- Barcode: Simpler, requires line-of-sight, cheaper
-- Recommendation: Start with barcode for MVP, add RFID later
