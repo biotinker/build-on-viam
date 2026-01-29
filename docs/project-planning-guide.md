@@ -1,6 +1,10 @@
 # Project Planning Guide
 
-This guide captures the strategic thinking behind Build on Viam project selection and design. Use it when proposing new projects or evaluating how well our portfolio demonstrates Viam's capabilities.
+## Program Overview
+
+Build on Viam is an internal program where Viam engineers build real robotics projects using the Viam platform. These projects serve multiple purposes: they demonstrate Viam's capabilities to customers and visitors, provide reference implementations for common robotics patterns, surface platform issues through real-world usage, and give engineers hands-on experience with the full development lifecycle.
+
+Projects range from robot arms that play chess and pour wine to automated greenhouses and smart lighting systems. Each project is designed to exercise specific Viam capabilities while being compelling enough to impress visitors and useful enough to solve real problems.
 
 ## Goals
 
