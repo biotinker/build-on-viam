@@ -39,7 +39,7 @@ These are the Viam capabilities we want to exercise throughout this program.
 |------------|-------------|
 | **Fleet Management** | Managing multiple machines with shared configs |
 | **OTA Updates** | Deploying module and model updates to fleet |
-| **Provisioning** | Using fragments to reuse machine configurations across a fleet |
+| **Provisioning** | Using fragments to reuse machine config across a fleet |
 
 ### Operational Capabilities
 
