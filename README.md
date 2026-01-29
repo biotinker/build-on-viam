@@ -1,166 +1,52 @@
-# Build on Viam
+# Build on Viam: Hackathon Announcement + Updated 20% Time Program
 
-**Get every Viam engineer building on Viam**
- 
-## Program Goals
+Deep platform familiarity isn't optional — it's what makes us effective. When you deeply understand Viam, you make better product and implementation decisions day-to-day. You can evaluate tradeoffs, spot issues early, and drive the right approach in your own work. You also move faster with less time lost to unfamiliar territory and dead ends. This program pays back in both autonomy and velocity.
 
-### 1. Team Enablement
+## The Projects
 
-Equip every engineering team with the knowledge, tools, and confidence to build effectively on the Viam platform.
+The program is built around a set of well-defined robotics applications that we'll develop over the coming months, starting with a hackathon kickoff. Each project has clear goals, exercises key Viam capabilities, and has a backlog that extends beyond the hackathon. We welcome proposals for additional well-defined projects that exercise many of Viam's capabilities. Links to browse the list of projects and submit proposals are below.
 
-**Success looks like:**
-- Every engineer has completed at least one project on the platform
-- Teams can independently start and complete projects without external support
-- Engineers can articulate Viam's core value propositions
+## What's changing with 20% time?
 
-### 2. Individual & Team Ownership
+We're adding more structure and support. Every engineer will join a project team for the quarter, dedicating at least 4 hours per week. We'll kick off with a 3-day hackathon, followed by bi-weekly demos and regular syncs throughout the quarter. Enablement sessions on using AI more effectively, robotics fundamentals, platform capabilities, and best practices will be available as needed.
 
-Foster a culture where engineers feel personal ownership over the platform's success and quality.
+## Hackathon Kickoff: February 24-26
 
-**Success looks like:**
-- Engineers proactively identify and report platform issues
-- Engineers contribute fixes and improvements beyond their assigned tasks
-- Increased participation in platform discussions and design reviews
+| Day | Schedule |
+| :---- | :---- |
+| Feb 24 | 9am Breakfast, 10am Kickoff, 11am-12pm Exec Office Hours, 12:30pm Lunch, 2pm-4pm Exec Office Hours |
+| Feb 25 | 9am Breakfast, 10am-11am Exec Office Hours, 12pm Lunch, 2pm-4pm Exec Office Hours |
+| Feb 26 | 9am Breakfast, 10am-12:30pm Exec Office Hours, 12:30pm Lunch, 1pm-3pm Final Touches, 4pm Presentations to Judges |
 
-### 3. Platform Quality
+Remote employees can participate virtually. The Greenhouse and Retro Roomba projects are specifically designed to be remote-friendly. We'll send you the hardware you need.
 
-Improve platform quality through direct, hands-on experience building real applications.
+## Key Dates
 
-**Success looks like:**
-- Decrease in customer-reported bugs
-- Increase in internally-discovered issues before release
-- Documentation improvements driven by real usage
+* Feb 6 — Deadline to submit new project proposals
+* Feb 13 — Deadline to join a project team
+* Week of Feb 16 — Pre-hackathon meetings to finalize MVP strategy
+* Feb 24-26 — Hackathon
 
----
+## A Note on Expectations
 
-## Program Structure
+From Emily: Knowing the Viam platform is a core expectation of performance at Viam. As part of our performance expectations, every engineer is to actively use, explore, and deepen their understanding of the platform. The upcoming hackathon will kick-start this focus, but ongoing hands-on usage and continuous learning are required, not optional, to be effective in our roles and to execute well as a company. These expectations will be formally reflected in the engineering career ladder in the coming weeks.
 
-### 1. Application Development
+## View Projects & Join a Team (actions for you)
 
-6-8 well-defined robotics applications to be developed (from scratch or continued from existing projects):
+**1.** Browse the current [project list](https://github.com/shannonbradshaw/build-on-viam/blob/main/projects/README.md).
 
-- Each application will be highly visible
-- Together they will demonstrate the depth and breadth of Viam's capabilities
-- Initial applications defined up front as prominent examples
-- Additional projects solicited via submission template and established guidelines
-- Each application has a defined backlog tracked in Jira
-- Some backlog items will be documentation
+To propose a new project, see the guidelines at the bottom of the [projects README](https://github.com/shannonbradshaw/build-on-viam/blob/main/projects/README.md#proposing-new-projects).
 
-**Requirement:** Every engineer must join an application team.
+The build team and I will assemble the hardware and configure Viam machines before the hackathon. You won't need to assemble and configure hardware from scratch. For the projects where there is lots of interest, we'll create multiple builds and establish multiple teams.
 
-### 2. Hackathon Kickoff
+**2.** Select the project you want to join – add your name to the corresponding row in the [project team doc](https://docs.google.com/spreadsheets/d/1qbU6BM_wMc3zNSto8v5F64fB3vbTYfGM_7teNfQeQDw/edit?gid=0#gid=0).
 
-- **Date:** February 2026
-- **Duration:** 3-day hackathon
-- **Culmination:** Demos and awards
+**3.** Complete the [T-shirt order form](https://docs.google.com/forms/d/e/1FAIpQLScMA2Dbfj1PhCeY4t_8W9rGMTy5vHHzxx43_MW4R7vzzYc7Tg/viewform).
 
-### 3. Ongoing Ownership & Accountability
+## Questions?
 
-- **Bi-weekly demos** with kudos and backlog burndown celebrations
-- **Designated triage sessions** where app teams present their top blockers
-- Focus on creating a remarkably positive experience with the platform
+See the [FAQ](https://github.com/shannonbradshaw/build-on-viam/blob/main/projects/FAQ.md) for answers to common questions. Slack me with anything else.
 
-### 4. Quarterly Retrospective
+Looking forward to building together!
 
-- What did our internal building experiences teach us?
-- What did we fix because of them?
-- What do we need to do to make Viam an exciting and powerful product experience?
-
-### 5. Education
-
-Ad hoc tutorial enablement sessions on:
-- Robotics fundamentals
-- Use of AI
-- Viam platform capabilities
-- Emerging best practices
-
----
-
-## Scorecard Metrics
-
-### Prior to Kickoff (Feb 10)
-- Progress reports on rollout prep
-- Defining project backlogs
-- Completing builds
-- Hackathon logistics prep
-
-### Mar 1 Target
-- 70% of individuals have continued their hackathon project
-
-### Ongoing (After Kickoff)
-- Team & individual activity in the prior 14 days
-- Application backlog items delivered
-- Jira issues opened/closed on platform bugs & enhancements emerging from builds
-
----
-
-## Documentation
-
-### For Engineers Building Projects
-
-| Document | Description |
-|----------|-------------|
-| [Team Development Guide](docs/team-development-guide.md) | **Start here.** Two-layer configuration architecture (hardware fragment + application layer), CLI development pattern for rapid iteration, project structure, multi-developer workflow, and best practices for building on Viam. Based on the [viam-chess](https://github.com/erh/viam-chess) reference implementation. |
-| [Submission Guidelines](docs/submission-guidelines.md) | How to propose a new project for the program. Includes deadline (Feb 13), evaluation criteria summary, requirements, and tips for strong proposals. |
-| [Project Template](templates/project-template.md) | Template for defining new projects. Includes sections for MVP options, hardware requirements, backlog items organized by feature category, and success criteria. |
-
-### For Program Leads & Evaluators
-
-| Document | Description |
-|----------|-------------|
-| [Project Planning Guide](docs/project-planning-guide.md) | Strategic guide for project selection and portfolio management. Covers Viam capability coverage analysis, feature gap methodology, configuration architecture rationale, and the full assessment criteria with scoring rubrics (1-5 scale across 6 dimensions). Use this when evaluating proposals or assessing portfolio balance. |
-
-### Projects
-
-| Document | Description |
-|----------|-------------|
-| [Projects Overview](projects/) | Index of all active projects with capability matrix showing which Viam features each project demonstrates. Includes comparison scores and next steps checklist. |
-| Individual project files | Each project (Vino, Chess, Greenhouse, Box-bot, Dishwasher, Cleaning Cart, Barista) has its own file with description, MVP options, hardware requirements, backlog, and success criteria. |
-
----
-
-## Quick Links
-
-**I want to...**
-
-| Goal | Go to |
-|------|-------|
-| Join a project team | [Projects Overview](projects/) |
-| Propose a new project | [Submission Guidelines](docs/submission-guidelines.md) → [Project Template](templates/project-template.md) |
-| Learn how to build on shared hardware | [Team Development Guide](docs/team-development-guide.md) |
-| Evaluate a project proposal | [Project Planning Guide](docs/project-planning-guide.md#project-assessment-criteria) |
-| Understand which Viam features we're demonstrating | [Project Planning Guide](docs/project-planning-guide.md#current-feature-coverage) |
-
----
-
-## Open Questions
-
-1. Should consumer/home-automation applications be part of our strategy?
-   - How do we incorporate remote engineers?
-   - How do we address Viam's scale-to-fleet, fleet maintenance, and batteries-included capabilities?
-2. Should we require all engineers to participate in user tests as part of this initiative?
-
----
-
-## Directory Structure
-
-```
-build-on-viam/
-├── README.md                 # This file - program overview and navigation
-├── docs/
-│   ├── team-development-guide.md    # How to build (architecture, workflow, best practices)
-│   ├── project-planning-guide.md    # Strategic planning (feature gaps, assessment criteria)
-│   └── submission-guidelines.md     # How to propose projects
-├── projects/
-│   ├── README.md             # Project index and capability matrix
-│   ├── barista.md            # Robotic coffee station
-│   ├── box-bot.md            # Cardboard box flattener
-│   ├── chess.md              # Chess-playing robot
-│   ├── cleaning-cart.md      # Mobile dish collection
-│   ├── dishwasher.md         # Dishwasher unloading robot
-│   ├── greenhouse.md         # Automated growing environment
-│   └── vino.md               # Wine service robot
-├── templates/
-│   └── project-template.md   # Template for new project proposals
-└── archive/                  # Historical working documents
-```
+-Shannon
