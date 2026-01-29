@@ -8,7 +8,7 @@ Deep platform familiarity isn't optional — it's what enables us to work faster
 
 ## The Projects
 
-The program is built around a set of well-defined robotics applications that we'll develop over the coming months, starting with a hackathon kickoff. Each project has clear goals, exercises key Viam capabilities, and has a well-defined backlog that extends beyond the hackathon. We welcome additional project proposals — links to browse projects and submit proposals are below.
+The program is built around a set of well-defined robotics applications that we'll develop over the coming months, starting with a hackathon kickoff. Each project has clear goals, exercises key Viam capabilities, and has a backlog that extends beyond the hackathon. We welcome proposals for additional well-defined projects that exercise many of Viam's capabilities — links to browse the list of projects and submit proposals are below.
 
 ## What's changing with 20% time?
 
@@ -24,7 +24,7 @@ We're kicking off the program with a hackathon!
 | **Feb 25** | 9am Breakfast, 10-11am Exec Office Hours, 12pm Lunch, 2-4pm Exec Office Hours |
 | **Feb 26** | 9am Breakfast, 10am-12:30pm Exec Office Hours, 12:30pm Lunch, 1-3pm Final Touches, 4pm Presentations to Judges |
 
-Remote employees can participate virtually. The **Greenhouse** and **Retro Roomba** projects are specifically designed to be remote-friendly.
+Remote employees can participate virtually. The **Greenhouse** and **Retro Roomba** projects are specifically designed to be remote-friendly. We'll send you the hardware you need.
 
 ## Key Dates
 
@@ -35,16 +35,16 @@ Remote employees can participate virtually. The **Greenhouse** and **Retro Roomb
 
 ## View Projects & Submit Proposals
 
-Browse the current projects and submit new proposals here:
+Browse the current projects here:
 https://github.com/shannonbradshaw/build-on-viam/tree/main/projects
 
-We welcome additional project ideas! To propose a new project, follow the template in the repo and submit a pull request.
+If you want to submit a new project proposal, see the guidelines and instructions linked at the bottom of that page.
 
-Hardware will be assembled and machines will be connected to Viam before the hackathon — you won't need to build hardware from scratch. If there's high interest in a particular project, we'll break it into multiple teams.
+The build team and I will assemble the hardware and configure Viam machines before the hackathon — you won't need to build hardware from scratch. For the projects where there is lots of interest, we'll create multiple builds and establish multiple teams.
 
 ## A Note on Expectations
 
-Knowing the Viam platform is a core expectation of performance at Viam. As part of our performance expectations, every engineer is to actively use, explore, and deepen their understanding of the platform. The upcoming hackathon will kick-start this focus, but ongoing hands-on usage and continuous learning are required, not optional, to be effective in our roles and to execute well as a company. These expectations will be formally reflected in the engineering career ladder in the coming weeks.
+From Emily: Knowing the Viam platform is a core expectation of performance at Viam. As part of our performance expectations, every engineer is to actively use, explore, and deepen their understanding of the platform. The upcoming hackathon will kick-start this focus, but ongoing hands-on usage and continuous learning are required, not optional, to be effective in our roles and to execute well as a company. These expectations will be formally reflected in the engineering career ladder in the coming weeks.
 
 Looking forward to building together!
 
