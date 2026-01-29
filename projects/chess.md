@@ -60,7 +60,7 @@ This project demonstrates vision-based detection, precise manipulation, game eng
 
 ## Existing Capabilities
 
-The following is already implemented in `~/viam/viam-chess`:
+The following is already implemented in viam chess:
 
 ### Board Detection
 - Hough transform line detection for board edges
