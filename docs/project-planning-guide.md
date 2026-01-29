@@ -39,7 +39,7 @@ These are the capabilities we want to demonstrate across our project portfolio:
 
 | Capability | Description |
 |------------|-------------|
-| **Triggers** | Event-driven automation (sensor thresholds, detections) |
+| **Event-Driven Automation** | Event-driven automation (sensor thresholds, detections) |
 | **Scheduled Tasks** | Periodic operations without custom schedulers |
 | **Monitoring & Alerting** | Fleet health visibility and notifications |
 | **Data Pipeline (ML Training)** | Capture → Label → Train → Deploy workflow |
@@ -55,21 +55,28 @@ These are the capabilities we want to demonstrate across our project portfolio:
 
 As of the current project portfolio, here's how capabilities are covered:
 
+**Active Projects:** Vino, Chess, Salad Maker, Greenhouse, Barista, Inventory Tracker, Retro Roomba, Smart Lighting
+
+**Future Projects:** Cleaning Cart, Dishwasher, Box Bot
+
 | Capability | Primary Project | Secondary |
 |------------|-----------------|-----------|
 | Hardware Integration | All projects | - |
-| Motion Planning | Chess, Vino, Dishwasher | Box-bot, Barista |
-| Vision / ML | Chess, Greenhouse | Box-bot, Cleaning Cart |
-| Data Capture | Greenhouse | All projects |
+| Motion Planning | Chess, Vino, Salad Maker, Barista | - |
+| Vision / ML | Chess, Inventory Tracker, Greenhouse | Salad Maker, Barista |
+| Data Capture & Sync | Greenhouse, Retro Roomba | All projects |
 | Remote Operation | All projects | - |
-| Module Development | Chess | All projects |
-| Fragments | Greenhouse | Barista |
-| Fleet Management | **Greenhouse** | Cleaning Cart, Barista |
-| Triggers | **Box-bot**, Greenhouse | Vino, Chess, Barista |
-| Scheduled Tasks | **Cleaning Cart** | Greenhouse, Vino, Barista |
-| Monitoring & Alerting | **Greenhouse** | Barista |
-| Data Pipeline (ML) | **Chess**, Greenhouse | Box-bot, Dishwasher |
-| Customer Delivery | **Vino**, **Barista** | - |
+| Module Development | **Retro Roomba**, **Smart Lighting** | Inventory Tracker |
+| Fragments | Greenhouse, Retro Roomba | Smart Lighting |
+| Fleet Management | **Greenhouse**, **Smart Lighting** | Barista, Inventory Tracker |
+| OTA Updates | Retro Roomba (stretch) | - |
+| Provisioning | Retro Roomba (stretch) | - |
+| Event-Driven Automation | **Inventory Tracker**, **Smart Lighting** | Greenhouse, Vino, Chess, Barista, Salad Maker |
+| Scheduled Tasks | **Smart Lighting**, **Inventory Tracker** | Greenhouse, Barista, Vino |
+| Monitoring & Alerting | **Greenhouse**, Barista | Inventory Tracker |
+| Data Pipeline (ML) | **Chess**, **Greenhouse** | Inventory Tracker, Salad Maker, Barista |
+| Customer Delivery | **Inventory Tracker**, **Vino** | Salad Maker, Barista |
+| Web/Mobile Apps | Inventory Tracker, Barista | Vino, Salad Maker |
 
 **Bold** = Primary responsibility for demonstrating this capability.
 
@@ -207,7 +214,7 @@ When proposing a new project, consider:
 
 When assigning gap features to projects:
 
-### Triggers
+### Event-Driven Automation
 
 Best fit for projects with:
 - Clear event → action patterns
@@ -215,7 +222,8 @@ Best fit for projects with:
 - State changes that should initiate behavior
 
 Examples:
-- Box-bot: Box detected → start flatten sequence
+- Inventory Tracker: Checkout gesture detected → capture photo, send notification
+- Smart Lighting: Occupancy detected → activate lights
 - Greenhouse: Humidity low → activate mister
 - Vino: Glass placed → start pour
 
@@ -227,7 +235,8 @@ Best fit for projects with:
 - Time-based operations
 
 Examples:
-- Cleaning Cart: Morning/lunch/evening patrol routes
+- Smart Lighting: Morning startup, evening shutdown, weekend mode
+- Inventory Tracker: Daily checkout summaries, weekly utilization reports
 - Greenhouse: Daily sensor readings, weekly reports
 - Barista: Morning warmup, end-of-day cleaning
 
@@ -240,8 +249,9 @@ Best fit for projects with:
 
 Examples:
 - Chess: Game state IS the label (automatic ground truth)
+- Inventory Tracker: Checkout images build training data, system improves through use
 - Greenhouse: Growth stages can be labeled over time
-- Box-bot: Box types can be classified and labeled
+- Salad Maker: Portion images train consistent grab detection
 
 ### Customer Delivery
 
@@ -251,9 +261,11 @@ Best fit for projects with:
 - Compelling customer-facing interface
 
 Examples:
+- Inventory Tracker: Dashboard for viewing checkouts and audit trail
 - Vino: Wine ordering for guests
+- Salad Maker: Ordering kiosk/app for custom salads
 - Barista: Coffee ordering for office
-- NOT: Box-bot (internal utility, no customer interaction)
+- NOT: Retro Roomba (internal utility, no customer interaction)
 
 ### Fleet Management
 
@@ -264,8 +276,9 @@ Best fit for projects with:
 
 Examples:
 - Greenhouse: Multiple sensor stations
+- Smart Lighting: Multiple light zones as fleet
+- Inventory Tracker: Multiple checkout stations
 - Barista: Multiple coffee stations
-- Cleaning Cart: Multiple carts for large facility
 - NOT: Chess (single board, no fleet benefit)
 
 ### Monitoring & Alerting
@@ -278,6 +291,7 @@ Best fit for projects with:
 Examples:
 - Greenhouse: Temperature, humidity, soil moisture
 - Barista: Bean level, water, temperature
+- Inventory Tracker: Overdue items, low stock
 - NOT: Chess (supervised play, no remote monitoring need)
 
 ## Project Portfolio Balance
@@ -294,18 +308,21 @@ The ideal portfolio has:
 
 | Dimension | Assessment |
 |-----------|------------|
-| Arm manipulation | Well covered (Chess, Vino, Barista, Dishwasher, Box-bot) |
-| Mobile navigation | Light (only Cleaning Cart) |
-| Vision/ML | Well covered |
-| Data/Fleet | Good (Greenhouse primary) |
-| Customer-facing | Good (Vino, Barista) |
-| Operational (triggers, scheduling) | Good (distributed across projects) |
+| Arm manipulation | Well covered (Chess, Vino, Salad Maker, Barista) |
+| Mobile navigation | Covered (Retro Roomba) |
+| Custom module development | Well covered (Retro Roomba, Smart Lighting) |
+| Vision/ML | Well covered (Chess, Inventory Tracker, Greenhouse) |
+| Data/Fleet | Good (Greenhouse, Smart Lighting primary) |
+| Customer-facing | Good (Inventory Tracker, Vino, Salad Maker, Barista) |
+| Operational (event-driven, scheduling) | Good (Smart Lighting, Inventory Tracker, Greenhouse) |
+| IoT/Sensors | Good (Greenhouse, Smart Lighting) |
 
 ### Potential Gaps for Future Projects
 
-- **Mobile manipulation** - Combining navigation + arm (partially covered by Cleaning Cart stretch)
+- **Mobile manipulation** - Combining navigation + arm (Cleaning Cart future project)
+- **SLAM/Navigation** - Retro Roomba covers basic navigation, not full SLAM (Cleaning Cart future project)
 - **Outdoor/weather** - All current projects are indoor
-- **Multi-robot coordination** - Robots working together (Cleaning Cart + Dishwasher handoff is stretch goal)
+- **Multi-robot coordination** - Salad Maker (dual-arm) partially covers; Cleaning Cart + Dishwasher handoff is future goal
 - **Voice interaction** - Listed as stretch for several projects, not primary for any
 
 ## Updating This Document
