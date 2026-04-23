@@ -15,6 +15,7 @@ Build on Viam is an internal program where Viam engineers build real robotics pr
 | [Dog](./dog.md) | Autonomous quadruped robot that uses computer vision to detect and follow a designated human operator |
 | [Greenhouse](./greenhouse.md) | Automated growing environment with sensing, environmental control, and growth tracking |
 | [Inventory Tracker](./inventory-tracker.md) | Track lab equipment checkout and return using RFID and cameras |
+| [Irrigation Balancer](./irrigation.md) | Closed-loop orchard flood irrigation — actuated valves plus per-outlet flow-estimating cameras keep water balanced across outlets regardless of inlet pressure |
 | [Retro Roomba](./retro-roomba.md) | Bring a Roomba 650/655 into the Viam ecosystem with a custom driver module and new capabilities |
 | [Rod Hockey Robot](./rod-hockey-robot.md) | A robot controlled rod hockey game that plays against humans |
 | [Salad Maker](./salad-maker.md) | Dual-arm robot that assembles custom salads from a refrigerated prep station |
